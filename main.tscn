@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
 
 [ext_resource type="Script" uid="uid://dlpn3yp40v3ll" path="res://tools/foreground.gd" id="6_b1qrp"]
-
+[ext_resource type="Shader" uid="uid://dpjbmrtjqudeh" path="res://assets/Shaders/bg.gdshader" id="6_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
@@ -105,6 +105,29 @@ height = 700
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2t1y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idcxy"]
+shader = ExtResource("6_d2t1y")
+shader_parameter/stars_on = true
+shader_parameter/timeScaleFactor = 0.04
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_d2t1y")
+shader_parameter/colour_muiltiplier = Color(1, 1, 1, 1)
+shader_parameter/colour_muiltiplier2 = Color(1, 1, 1, 1)
+shader_parameter/warm_a = Color(0.3, 0.13, 0.04, 1)
+shader_parameter/warm_b = Color(0.26, 0.06, 0.07, 1)
+shader_parameter/star_tint = Color(1, 0.9, 0.75, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/clouds_resolution = 2.4499999452376002
+shader_parameter/clouds_intesity = 0.0
+shader_parameter/waveyness = 0.5
+shader_parameter/fragmentation = 7.0
+shader_parameter/distortion = 0.5
+shader_parameter/clouds_alpha = 0.6000000014900599
+shader_parameter/movement = 1.0
+shader_parameter/blur = 0.0
+shader_parameter/blur2 = 0.01
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
 bounce = 0.2
@@ -127,8 +150,8 @@ light_mask = 2
 
 [node name="Slunko" type="Parallax2D" parent="Background" unique_id=1966991583]
 modulate = Color(1, 1, 0.83137256, 1)
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(780, -42)
+scroll_scale = Vector2(0.1, 0.5)
+scroll_offset = Vector2(-121, -68)
 
 [node name="Slunko" type="Sprite2D" parent="Background/Slunko" unique_id=498790342]
 light_mask = 2
@@ -221,6 +244,18 @@ light_mask = 2
 position = Vector2(952, 85.999985)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_htxhm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background" unique_id=404525426]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background/CanvasLayer" unique_id=1724681085]
+material = SubResource("ShaderMaterial_idcxy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Foreground" type="Node2D" parent="." unique_id=312126430]
 script = ExtResource("6_b1qrp")
