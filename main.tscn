@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
+[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
@@ -26,8 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
 [ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
 [ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
-[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
-[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
@@ -103,11 +103,6 @@ position = Vector2(1578, -1518)
 rotation = -3.0934112
 scale = Vector2(0.31964028, 0.579523)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2019903937]
-position = Vector2(2826, -2541.9998)
-rotation = 2.9568555
-scale = Vector2(0.45396182, 0.6557774)
-
 [node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
 position = Vector2(2661, -1602.0002)
 rotation = -3.3263297
@@ -173,6 +168,7 @@ scale = Vector2(0.63988423, 0.63988423)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 position = Vector2(780, 328)
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_sal4b")
 can_sleep = false
 continuous_cd = 1
