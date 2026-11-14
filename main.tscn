@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bqwupmks6gtdv" path="res://assets/fg/scenes/vetrak.tscn" id="17_82xsv"]
 [ext_resource type="PackedScene" uid="uid://oh6fekb662yh" path="res://assets/fg/scenes/zvykacka.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://dm0vqfjmrdmlv" path="res://assets/fg/scenes/toilet.tscn" id="20_getpj"]
+[ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
@@ -125,3 +126,10 @@ rotation = 1.7452497
 position = Vector2(152.00006, -656)
 rotation = 2.233442
 scale = Vector2(0.13279392, 0.13279392)
+
+[node name="Mlyn" parent="." unique_id=363837391 instance=ExtResource("21_getpj")]
+position = Vector2(1020, -913)
+rotation = -0.031595875
+scale = Vector2(1.5796716, 1.5796716)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1240545475]
