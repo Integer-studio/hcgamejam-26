@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dccg4x8b0rnwh" path="res://assets/fg/imgs/lilek.png" id="1_1yctn"]
 
-[node name="Lilek" type="StaticBody2D" unique_id=454557367]
+[node name="Lilek" type="StaticBody2D" unique_id=1388506144]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1192030519]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508770707]
 texture = ExtResource("1_1yctn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1527184875]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=947855751]
 visible = false
 polygon = PackedVector2Array(-12.5, -289.5, -23.5, -268.5, -24.5, -268.5, -21.5, -235.5, -21.5, -234.5, -51.5, -220.5, -53.5, -220.5, -64.5, -196.5, -65.5, -196.5, -89.5, -103.5, -90.5, -103.5, -104.5, -30.5, -105.5, -30.5, -118.5, 60.5, -118.5, 130.5, -97.5, 209.5, -97.5, 213.5, -64.5, 257.5, -64.5, 259.5, -55.5, 264.5, -55.5, 265.5, -7.5, 290.5, -7.5, 291.5, 28.5, 284.5, 33.5, 284.5, 81.5, 255.5, 82.5, 255.5, 107.5, 212.5, 108.5, 212.5, 117.5, 166.5, 118.5, 166.5, 112.5, 104.5, 112.5, 94.5, 98.5, 22.5, 97.5, 22.5, 75.5, -134.5, 75.5, -141.5, 48.5, -211.5, 48.5, -214.5, 17.5, -230.5, 15.5, -230.5, 11.5, -269.5, 11.5, -272.5, 2.5, -287.5, 2.5, -289.5, -12.5, -291.5)

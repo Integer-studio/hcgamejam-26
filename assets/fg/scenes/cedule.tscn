@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://smbop5lc6ifg" path="res://assets/fg/imgs/cedule.png" id="1_jpllc"]
 
-[node name="Cedule" type="StaticBody2D" unique_id=1621591307]
+[node name="Cedule" type="StaticBody2D" unique_id=257585800]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647016016]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2130465004]
 texture = ExtResource("1_jpllc")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=228927045]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1326536078]
 visible = false
 polygon = PackedVector2Array(312, -675.5, -383, -624.5, -384, -624.5, -354, 375.5, -354, 392.5, -258, 351.5, -254, 351.5, -199, 736.5, -199, 743.5, -198, 743.5, -198, 748.5, -190, 747.5, -176, 747.5, -152, 744.5, -144, 744.5, -132, 664.5, -132, 660.5, -52, 513.5, -52, 511.5, 65, 482.5, 65, 481.5, 287, 456.5, 297, 456.5, 405, 583.5, 405, 585.5, 459, 599.5, 460, 599.5, 435, 417.5, 434, 417.5, 414, 159.5, 414, 147.5, 370, -178.5, 369, -178.5, 324, -660.5, 324, -672.5, 323, -672.5, 323, -676.5, 312, -676.5)

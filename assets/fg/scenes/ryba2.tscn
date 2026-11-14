@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://y0f1m3wqmwfc" path="res://assets/fg/imgs/ryba2.png" id="1_coqv0"]
 
-[node name="Ryba2" type="StaticBody2D" unique_id=2135649931]
+[node name="Ryba2" type="StaticBody2D" unique_id=755345170]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1080944483]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=201322667]
 texture = ExtResource("1_coqv0")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1852791485]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1679385288]
 visible = false
 polygon = PackedVector2Array(752, -454, 499, -323, 499, -322, -403, -353, -437, -353, -810, -288, -810, -287, -972, -285, -1010, -285, -1295, -188, -1295, -187, -1714, -74, -1717, -74, -1733, 4, -1734, 4, -1733, 9, -1733, 10, -1366, 163, -1366, 164, -816, 197, -816, 198, -168, 175, -137, 175, -36, 201, -32, 201, -30, 204, -23, 204, -12, 215, -12, 216, -2, 220, -2, 221, 248, 332, 248, 333, 250, 333, 250, 331, 188, 191, 188, 189, 576, 194, 606, 194, 803, 344, 803, 345, 962, 363, 962, 364, 966, 364, 1004, 238, 1004, 236, 951, 147, 951, 146, 862, 133, 862, 132, 1031, 69, 1035, 69, 1259, 182, 1259, 183, 1698, 356, 1699, 356, 1507, 116, 1504, 116, 1493, 94, 1492, 94, 1634, -297, 1634, -299, 1200, -97, 1196, -97, 904, -176, 900, -176, 1019, -272, 1019, -274, 752, -455)

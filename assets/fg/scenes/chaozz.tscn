@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://chwdsgnw2g2c3" path="res://assets/fg/imgs/chaozz.png" id="1_5f11t"]
 
-[node name="Chaozz" type="StaticBody2D" unique_id=1556242397]
+[node name="Chaozz" type="StaticBody2D" unique_id=1220243145]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1641107248]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459083127]
 texture = ExtResource("1_5f11t")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=853192541]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1584083652]
 visible = false
 polygon = PackedVector2Array(-120, 120, 120, 120, 120, -120, -120, -120)

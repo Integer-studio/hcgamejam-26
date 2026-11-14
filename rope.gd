@@ -8,9 +8,10 @@ extends Node2D
 @onready var line: Line2D = $Line
 
 @export_group("Shot")
-@export var shoot_speed := 760.0
-@export var hand_gravity := 1100.0
+@export var shoot_speed := 850.0
+@export var hand_gravity := 500.0
 @export var max_rope_length := 450.0
+@export var retract_time := 0.2
 
 @export_group("Reel")
 @export var starting_reel_speed := 60.0
@@ -22,10 +23,11 @@ extends Node2D
 @export var rope_stiffness := 70.0
 @export var rope_damping := 9.0
 @export var max_stretch := 45.0
-@export var rope_gravity := 330.0
-@export var loose_hand_gravity := 1100.0
+@export var rope_gravity := 150.0
+@export var loose_hand_gravity := 500.0
 @export var hand_drag_weight := 0.6
 @export_range(0.0, 1.0) var rope_friction := 0.3
+@export_range(0.0, 1.0) var rope_end_bounce := 0.1
 
 @export_group("Rules")
 @export var grab_after_rope_runs_out := true
@@ -46,6 +48,10 @@ const ROPE_POINT_COUNT := 24
 const DRAW_SAMPLE_COUNT := 48
 
 var is_shooting := false
+var is_retracting := false
+var shot_waiting := false
+var retract_progress := 0.0
+var retract_offsets := PackedVector2Array()
 var is_holding := false
 var rope_is_loose := false
 var rope_is_taut := false
@@ -78,26 +84,68 @@ func _ready() -> void:
 	air_shots_left = shots_allowed_in_air
 	previous_player_position = player.global_position
 	shape_query.shape = probe_circle
+	for child in player.get_children():
+		if child is Camera2D:
+			child.make_current()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			if can_shoot():
-				if time_since_on_ground >= 0.1 and shots_allowed_in_air >= 0:
-					air_shots_left -= 1
-				shoot(get_global_mouse_position())
+			if is_retracting:
+				shot_waiting = true
+			else:
+				try_shoot()
 		else:
-			is_shooting = false
+			shot_waiting = false
+			start_retract()
+
+
+func try_shoot() -> void:
+	if can_shoot():
+		if time_since_on_ground >= 0.1 and shots_allowed_in_air >= 0:
+			air_shots_left -= 1
+		shoot(get_global_mouse_position())
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-		is_shooting = false
+		start_retract()
 
 
 func can_shoot() -> bool:
+	if is_retracting:
+		return false
 	return shots_allowed_in_air < 0 or time_since_on_ground < 0.1 or air_shots_left > 0
+
+
+func start_retract() -> void:
+	if not is_shooting:
+		return
+	is_shooting = false
+	is_holding = false
+	is_retracting = true
+	retract_progress = 0.0
+	var player_position := player.global_position
+	retract_offsets.resize(ROPE_POINT_COUNT + 1)
+	for i in ROPE_POINT_COUNT + 1:
+		retract_offsets[i] = rope_points[i] - player_position
+
+
+func _update_retract(delta: float) -> void:
+	retract_progress += delta / maxf(retract_time, 0.001)
+	if retract_progress >= 1.0:
+		is_retracting = false
+		if shot_waiting and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			try_shoot()
+		shot_waiting = false
+		return
+	var remaining := 1.0 - retract_progress * retract_progress
+	var player_position := player.global_position
+	for i in ROPE_POINT_COUNT + 1:
+		rope_points[i] = player_position + retract_offsets[i] * remaining
+	wave_strength *= exp(-wave_fade_speed * delta)
+	time_since_shot += delta
 
 
 func shoot(target: Vector2) -> void:
@@ -126,6 +174,8 @@ func _physics_process(delta: float) -> void:
 	_update_ground_check(delta)
 	if is_shooting:
 		_update_arm(delta)
+	elif is_retracting:
+		_update_retract(delta)
 	previous_player_position = player.global_position
 	_draw_rope()
 
@@ -198,6 +248,7 @@ func _update_arm(delta: float) -> void:
 				rope_is_loose = true
 				_place_points_along_rope()
 				rope_is_taut = false
+				_absorb_rope_snap()
 			else:
 				_place_points_along_rope()
 				return
@@ -208,6 +259,20 @@ func _update_arm(delta: float) -> void:
 			return
 
 	_simulate_loose_rope(delta, old_hand_position)
+
+
+func _absorb_rope_snap() -> void:
+	var player_position := player.global_position
+	for i in range(1, ROPE_POINT_COUNT + 1):
+		var outward := rope_points[i] - player_position
+		if outward.length() < 0.001:
+			continue
+		outward = outward.normalized()
+		var velocity := rope_points[i] - previous_rope_points[i]
+		var outward_speed := velocity.dot(outward)
+		if outward_speed > 0.0:
+			velocity -= outward * outward_speed * (1.0 - rope_end_bounce)
+		previous_rope_points[i] = rope_points[i] - velocity
 
 
 func _pull_player(taut_length: float, delta: float) -> void:
@@ -557,7 +622,7 @@ func _push_links_off_corners() -> void:
 
 
 func _draw_rope() -> void:
-	if not is_shooting:
+	if not is_shooting and not is_retracting:
 		line.clear_points()
 		if hand_sprite:
 			hand_sprite.visible = false
