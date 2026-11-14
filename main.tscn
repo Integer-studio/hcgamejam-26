@@ -1,47 +1,98 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
 [ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
+
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
+
 [ext_resource type="Texture2D" uid="uid://dwhm036k112i6" path="res://assets/bg/hory.png" id="1_qsp4k"]
+
 [ext_resource type="Texture2D" uid="uid://baoxg5a6jjkub" path="res://assets/player/oblicej.png" id="2_0xm2m"]
+
 [ext_resource type="PackedScene" uid="uid://dp74fl11w8rcb" path="res://assets/fg/scenes/rock2.tscn" id="2_7mycd"]
+
 [ext_resource type="PackedScene" uid="uid://de84uoow7by6v" path="res://assets/fg/scenes/rock1.tscn" id="2_h2yge"]
+
 [ext_resource type="Texture2D" uid="uid://bxky0sg40p4ef" path="res://assets/bg/clouds3.png" id="2_jq2sk"]
+
 [ext_resource type="Script" uid="uid://c1cxsvm1dghc5" path="res://rope.gd" id="3_1bvp3"]
+
 [ext_resource type="Texture2D" uid="uid://886fya2wjx6e" path="res://assets/bg/clouds2.png" id="3_4k2k6"]
+
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
+
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
+
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
+
 [ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
+
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
+
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
+
 [ext_resource type="Script" uid="uid://dlpn3yp40v3ll" path="res://tools/foreground.gd" id="6_b1qrp"]
+
 [ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
+
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
+
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
+
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
+
 [ext_resource type="PackedScene" uid="uid://tvh47s1la3s8" path="res://assets/fg/scenes/magnet.tscn" id="11_w48qg"]
+
 [ext_resource type="PackedScene" uid="uid://cl627e1mygysk" path="res://assets/fg/scenes/rockmale.tscn" id="12_1u8w0"]
+
 [ext_resource type="PackedScene" uid="uid://8ai4g8x1x7md" path="res://assets/fg/scenes/ryba2.tscn" id="12_vivmo"]
+
 [ext_resource type="PackedScene" uid="uid://qto2avoqptax" path="res://assets/fg/scenes/rytir.tscn" id="13_2cqfq"]
+
 [ext_resource type="PackedScene" uid="uid://bfxrnr2urk2v0" path="res://assets/fg/scenes/tux.tscn" id="14_82xsv"]
+
 [ext_resource type="PackedScene" uid="uid://dkobh7sknk07v" path="res://assets/fg/scenes/postavy.tscn" id="14_yaehf"]
+
 [ext_resource type="PackedScene" uid="uid://dc3hd61xocur8" path="res://assets/fg/scenes/varhany.tscn" id="15_074og"]
+
 [ext_resource type="PackedScene" uid="uid://ckgkkpg84qumr" path="res://assets/fg/scenes/tree.tscn" id="16_cegan"]
+
 [ext_resource type="PackedScene" uid="uid://bqwupmks6gtdv" path="res://assets/fg/scenes/vetrak.tscn" id="17_82xsv"]
+
 [ext_resource type="PackedScene" uid="uid://oh6fekb662yh" path="res://assets/fg/scenes/zvykacka.tscn" id="18_getpj"]
+
 [ext_resource type="PackedScene" uid="uid://dm0vqfjmrdmlv" path="res://assets/fg/scenes/toilet.tscn" id="20_getpj"]
+
 [ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
+
 [ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
+
 [ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
+
 [ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
+
 [ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
+
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
+
 [ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
+
 [ext_resource type="Texture2D" uid="uid://ctuj4jfbtspxg" path="res://assets/fg/imgs/rock2.png" id="38_b1qrp"]
+
 [ext_resource type="Script" uid="uid://wulqourlmhf3" path="res://ui/height_meter.gd" id="39_meter"]
+
 [ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
+
 [ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
+
+[ext_resource type="PackedScene" uid="uid://dg8karnbr0vxh" path="res://assets/fg/scenes/myiska.tscn" id="7_0n3wm"]
+
+[ext_resource type="PackedScene" uid="uid://bvwu6iy4hrgdm" path="res://assets/fg/scenes/piano.tscn" id="41_4lmeg"]
+
+[ext_resource type="PackedScene" uid="uid://dj0rerx0lypw6" path="res://assets/fg/scenes/oko.tscn" id="42_0cp0l"]
+
+[ext_resource type="PackedScene" uid="uid://3ysl3scopeg7" path="res://assets/fg/scenes/cesar.tscn" id="43_d2t1y"]
+
+[ext_resource type="PackedScene" uid="uid://d3hod4ypkbfg2" path="res://assets/fg/scenes/ryba1.tscn" id="44_gngh3"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 offsets = PackedFloat32Array(0, 0.23127036)
@@ -59,7 +110,7 @@ friction = 0.4
 bounce = 0.2
 
 [sub_resource type="Gradient" id="Gradient_seu75"]
-colors = PackedColorArray(1, 1, 0.7921569, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 0.58431375, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_44d13"]
 gradient = SubResource("Gradient_seu75")
@@ -187,6 +238,12 @@ scale = Vector2(6.479998, 4.080001)
 position = Vector2(2524, 1506.9999)
 scale = Vector2(6.479998, 4.080001)
 
+[node name="Myiska" parent="Foreground/Rock9" unique_id=159600990 instance=ExtResource("7_0n3wm")]
+position = Vector2(-135.1852, -1242.6466)
+rotation = 2.7392428
+scale = Vector2(0.1619994, 0.24009205)
+skew = 0.23521495
+
 [node name="Rock6" parent="Foreground" unique_id=492042573 instance=ExtResource("2_h2yge")]
 position = Vector2(3866.0002, -1773)
 rotation = 0.06408739
@@ -252,7 +309,7 @@ rotation = -2.748798
 scale = Vector2(1.2800006, 1.2800006)
 
 [node name="Rockmale" parent="Foreground" unique_id=1165605115 instance=ExtResource("12_1u8w0")]
-position = Vector2(1667.9999, -3644)
+position = Vector2(1794.9999, -3527.9998)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
 
@@ -272,7 +329,7 @@ rotation = 1.2943921
 scale = Vector2(0.5983885, 0.57249165)
 
 [node name="Postavy" parent="Foreground" unique_id=261777931 instance=ExtResource("14_yaehf")]
-position = Vector2(1373, -3296.0002)
+position = Vector2(1345, -3296)
 rotation = 0.03549862
 scale = Vector2(1.8066761, 1.8066761)
 
@@ -281,8 +338,8 @@ position = Vector2(2110, -2780)
 rotation = -2.9852803
 
 [node name="Varhany" parent="Foreground" unique_id=327617802 instance=ExtResource("15_074og")]
-position = Vector2(2995, -2697.0002)
-rotation = -1.5369653
+position = Vector2(3018, -2697)
+rotation = 4.74622
 scale = Vector2(2.0092669, 2.0092669)
 
 [node name="Tree" parent="Foreground" unique_id=721592249 instance=ExtResource("16_cegan")]
@@ -414,3 +471,68 @@ rotation = -1.5704194
 scale = Vector2(1.0572143, 0.20908096)
 mouse_filter = 2
 texture = ExtResource("38_b1qrp")
+
+[node name="Rock10" parent="Foreground" unique_id=1007362549 instance=ExtResource("2_7mycd")]
+position = Vector2(2500.0002, -3037.0002)
+rotation = -2.9160519
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Rock10" parent="Foreground/Rock10" unique_id=946802537 instance=ExtResource("2_7mycd")]
+position = Vector2(2500.0002, -3037.0002)
+rotation = -2.9160519
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Rock11" parent="Foreground" unique_id=1157260391 instance=ExtResource("2_7mycd")]
+position = Vector2(2117, -3333.9998)
+rotation = -2.2169135
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Snek3" parent="Foreground" unique_id=1536930889 instance=ExtResource("5_kek77")]
+position = Vector2(2416, -1184)
+rotation = 0.43608263
+scale = Vector2(0.41008413, 0.41008413)
+
+[node name="Piano" parent="Foreground" unique_id=1932888241 instance=ExtResource("41_4lmeg")]
+position = Vector2(668.9999, -4433)
+rotation = 0.44330326
+scale = Vector2(4.7275267, 4.7275267)
+
+[node name="Oko" parent="Foreground" unique_id=1547321877 instance=ExtResource("42_0cp0l")]
+position = Vector2(2734, -249.99997)
+rotation = 3.035928
+
+[node name="Cesar" parent="Foreground" unique_id=1903022562 instance=ExtResource("43_d2t1y")]
+position = Vector2(517, -5010)
+
+[node name="Magnet2" parent="Foreground" unique_id=479238729 instance=ExtResource("11_w48qg")]
+position = Vector2(879, -5269)
+
+[node name="Magnet3" parent="Foreground" unique_id=1927734702 instance=ExtResource("11_w48qg")]
+position = Vector2(540, -5570)
+rotation = 3.1411436
+
+[node name="Magnet4" parent="Foreground" unique_id=784026999 instance=ExtResource("11_w48qg")]
+position = Vector2(908, -5852)
+
+[node name="Magnet5" parent="Foreground" unique_id=1757439108 instance=ExtResource("11_w48qg")]
+position = Vector2(540, -6127)
+
+[node name="Pila2" parent="Foreground" unique_id=1107917889 instance=ExtResource("7_4c57u")]
+position = Vector2(1466.9998, -6775)
+rotation = -1.0254272
+scale = Vector2(4.0049653, 4.0049653)
+
+[node name="Ryba1" parent="Foreground" unique_id=1347373926 instance=ExtResource("44_gngh3")]
+position = Vector2(978.0001, 591)
+rotation = 0.2617994
+scale = Vector2(0.61661875, 0.61661875)
+
+[node name="Rock12" parent="Foreground" unique_id=537483904 instance=ExtResource("2_h2yge")]
+position = Vector2(-719.9999, -6052)
+rotation = -0.12730369
+scale = Vector2(2.7142067, 15.736229)
+
+[node name="Rock13" parent="Foreground" unique_id=1788786328 instance=ExtResource("2_h2yge")]
+position = Vector2(4516, -6787)
+rotation = 0.06408739
+scale = Vector2(4.6412816, 15.181104)
