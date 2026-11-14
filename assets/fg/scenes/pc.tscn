@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dhuqwbsvs31fo"]
+
+[ext_resource type="Texture2D" uid="uid://b7olonfec3mnc" path="res://assets/fg/imgs/pc.png" id="1_oumh0"]
+
+[node name="Pc" type="StaticBody2D" unique_id=2079447180]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=218455879]
+texture = ExtResource("1_oumh0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=851092483]
+visible = false
+polygon = PackedVector2Array(-159, -285.5, -123, -251.5, -123, -250.5, -220, -246.5, -222, -246.5, -180, -217.5, -179, -217.5, -182, -194.5, -182, -184.5, -252, -124.5, -253, -124.5, -187, 137.5, -186, 137.5, -186, 142.5, -218, 175.5, -219, 175.5, -198, 209.5, -198, 211.5, -124, 194.5, -117, 194.5, -17, 244.5, -15, 244.5, 47, 297.5, 47, 298.5, 97, 307.5, 104, 307.5, 201, 261.5, 203, 261.5, 167, 222.5, 167, 219.5, 220, 134.5, 221, 134.5, 230, 83.5, 230, 78.5, 262, 38.5, 263, 38.5, 191, -185.5, 191, -188.5, 158, -187.5, 152, -187.5, 118, -173.5, 114, -173.5, -14, -260.5, -14, -261.5, -159, -286.5)
