@@ -10,6 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bnlwhe5vulcin" path="res://assets/fg/scenes/koste.tscn" id="10_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://tvh47s1la3s8" path="res://assets/fg/scenes/magnet.tscn" id="11_w48qg"]
+[ext_resource type="PackedScene" uid="uid://8ai4g8x1x7md" path="res://assets/fg/scenes/ryba2.tscn" id="12_vivmo"]
+[ext_resource type="PackedScene" uid="uid://qto2avoqptax" path="res://assets/fg/scenes/rytir.tscn" id="13_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://bfxrnr2urk2v0" path="res://assets/fg/scenes/tux.tscn" id="14_82xsv"]
+[ext_resource type="PackedScene" uid="uid://dkobh7sknk07v" path="res://assets/fg/scenes/postavy.tscn" id="14_yaehf"]
+[ext_resource type="PackedScene" uid="uid://dc3hd61xocur8" path="res://assets/fg/scenes/varhany.tscn" id="15_074og"]
+[ext_resource type="PackedScene" uid="uid://ckgkkpg84qumr" path="res://assets/fg/scenes/tree.tscn" id="16_cegan"]
+[ext_resource type="PackedScene" uid="uid://bqwupmks6gtdv" path="res://assets/fg/scenes/vetrak.tscn" id="17_82xsv"]
+[ext_resource type="PackedScene" uid="uid://oh6fekb662yh" path="res://assets/fg/scenes/zvykacka.tscn" id="18_getpj"]
+[ext_resource type="PackedScene" uid="uid://dm0vqfjmrdmlv" path="res://assets/fg/scenes/toilet.tscn" id="20_getpj"]
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
@@ -19,7 +29,7 @@ rotation = -0.12730369
 scale = Vector2(2.7142067, 15.736229)
 
 [node name="Rock4" parent="." unique_id=215727371 instance=ExtResource("2_h2yge")]
-position = Vector2(128, 427)
+position = Vector2(166, 418.99997)
 rotation = -0.40830535
 scale = Vector2(1.5446235, 2.9018927)
 
@@ -32,38 +42,86 @@ scale = Vector2(1.9797872, 1.0473214)
 position = Vector2(1290, 736)
 scale = Vector2(2.7898853, 0.9675196)
 
-[node name="part1" type="Node" parent="." unique_id=192211057]
-
-[node name="Chaozz" parent="part1" unique_id=908453492 instance=ExtResource("3_272bh")]
+[node name="Chaozz" parent="." unique_id=908453492 instance=ExtResource("3_272bh")]
 position = Vector2(2401, 452.00003)
 scale = Vector2(0.8015971, 0.8632541)
 
-[node name="Lilek" parent="part1" unique_id=1680965395 instance=ExtResource("4_5vw27")]
+[node name="Lilek" parent="." unique_id=1680965395 instance=ExtResource("4_5vw27")]
 position = Vector2(2216, 552)
 scale = Vector2(1.4119607, 1.0187924)
 
-[node name="Snek" parent="part1" unique_id=1799481394 instance=ExtResource("5_kek77")]
+[node name="Snek" parent="." unique_id=1799481394 instance=ExtResource("5_kek77")]
 position = Vector2(1922, 678)
 scale = Vector2(1.2089063, 1.0854567)
 
-[node name="Cedule" parent="part1" unique_id=1734713800 instance=ExtResource("6_4c57u")]
-position = Vector2(2376, 258.00003)
+[node name="Cedule" parent="." unique_id=1734713800 instance=ExtResource("6_4c57u")]
+position = Vector2(2414, 283.00006)
 rotation = 0.4750663
 scale = Vector2(0.2447409, 0.23151179)
 
-[node name="Pila" parent="part1" unique_id=444560652 instance=ExtResource("7_4c57u")]
+[node name="Pila" parent="." unique_id=444560652 instance=ExtResource("7_4c57u")]
 position = Vector2(2837, -241.00012)
 rotation = -1.2842988
-scale = Vector2(3.225925, 2.7507875)
+scale = Vector2(3.225925, 2.7507877)
 
-[node name="Lizard" parent="part1" unique_id=1781829167 instance=ExtResource("8_efxa6")]
+[node name="Lizard" parent="." unique_id=1781829167 instance=ExtResource("8_efxa6")]
 position = Vector2(3067.0002, -685)
 scale = Vector2(0.41935724, 0.40296558)
 
-[node name="Diamond" parent="part1" unique_id=1182642174 instance=ExtResource("9_dg77c")]
+[node name="Diamond" parent="." unique_id=1182642174 instance=ExtResource("9_dg77c")]
 position = Vector2(3195, -1116)
 scale = Vector2(1.4790518, 3.8011065)
 
-[node name="Koste" parent="part1" unique_id=991405124 instance=ExtResource("10_ycdy4")]
+[node name="Koste" parent="." unique_id=991405124 instance=ExtResource("10_ycdy4")]
 position = Vector2(2669, -1250)
 scale = Vector2(1.781814, 2.1914814)
+
+[node name="Magnet" parent="." unique_id=692395544 instance=ExtResource("11_w48qg")]
+position = Vector2(276, -116)
+scale = Vector2(1.2800006, 1.2800006)
+
+[node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
+position = Vector2(951, -645)
+scale = Vector2(0.23011148, -0.47446373)
+
+[node name="Rytir" parent="." unique_id=102005389 instance=ExtResource("13_2cqfq")]
+position = Vector2(373.00003, -153)
+rotation = -3.040831
+scale = Vector2(0.67213404, 0.67213404)
+
+[node name="Tux" parent="." unique_id=1949069651 instance=ExtResource("14_82xsv")]
+position = Vector2(2280.0002, -918.0001)
+rotation = 1.5145512
+scale = Vector2(0.5983885, 0.57249165)
+
+[node name="Postavy" parent="." unique_id=261777931 instance=ExtResource("14_yaehf")]
+position = Vector2(1137, 52.00006)
+rotation = 0.68459827
+scale = Vector2(1.8066761, 1.8066761)
+
+[node name="Snek2" parent="." unique_id=66239610 instance=ExtResource("5_kek77")]
+position = Vector2(505.99997, -40.00003)
+rotation = 2.2542465
+
+[node name="Varhany" parent="." unique_id=327617802 instance=ExtResource("15_074og")]
+position = Vector2(1548.0001, -37.99994)
+rotation = 2.549214
+scale = Vector2(2.0092669, 2.0092669)
+
+[node name="Tree" parent="." unique_id=721592249 instance=ExtResource("16_cegan")]
+position = Vector2(1720.0001, -986)
+rotation = 3.1439135
+
+[node name="Vetrak" parent="." unique_id=334021481 instance=ExtResource("17_82xsv")]
+position = Vector2(2109, -558)
+rotation = 3.078827
+scale = Vector2(0.20016843, 0.20016843)
+
+[node name="Zvykacka" parent="." unique_id=1277441536 instance=ExtResource("18_getpj")]
+position = Vector2(2041, -1037.0001)
+rotation = 1.7452497
+
+[node name="Toilet" parent="." unique_id=917885710 instance=ExtResource("20_getpj")]
+position = Vector2(152.00006, -656)
+rotation = 2.233442
+scale = Vector2(0.13279392, 0.13279392)
