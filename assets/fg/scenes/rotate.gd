@@ -6,6 +6,6 @@ func _ready() -> void:
 	pass 
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	rotation += deg_to_rad(speed_deg) * delta
 	
