@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
-[ext_resource type="PackedScene" uid="uid://bnlwhe5vulcin" path="res://assets/fg/scenes/koste.tscn" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://tvh47s1la3s8" path="res://assets/fg/scenes/magnet.tscn" id="11_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cl627e1mygysk" path="res://assets/fg/scenes/rockmale.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://8ai4g8x1x7md" path="res://assets/fg/scenes/ryba2.tscn" id="12_vivmo"]
@@ -36,6 +35,11 @@ bounce = 0.2
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
+[node name="Rock6" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
+position = Vector2(3866.0002, -1773)
+rotation = 0.06408739
+scale = Vector2(4.6412816, 15.181104)
+
 [node name="Rock2" parent="." unique_id=1000638153 instance=ExtResource("2_h2yge")]
 position = Vector2(-518.00006, -2013)
 rotation = -0.12730369
@@ -50,6 +54,11 @@ scale = Vector2(1.5446235, 2.9018927)
 position = Vector2(603, 745)
 rotation = 0.15762077
 scale = Vector2(1.9797872, 1.0473214)
+
+[node name="Mlyn" parent="." unique_id=363837391 instance=ExtResource("21_getpj")]
+position = Vector2(3082, -993)
+rotation = -2.5155654
+scale = Vector2(2.423958, 2.7183964)
 
 [node name="Rock3" parent="." unique_id=1050046009 instance=ExtResource("2_7mycd")]
 position = Vector2(1290, 736)
@@ -85,85 +94,82 @@ scale = Vector2(0.41935724, 0.40296558)
 position = Vector2(3195, -1116)
 scale = Vector2(1.4790518, 3.8011065)
 
-[node name="Koste" parent="." unique_id=991405124 instance=ExtResource("10_ycdy4")]
-position = Vector2(2669, -1250)
-scale = Vector2(1.781814, 2.1914814)
-
 [node name="Magnet" parent="." unique_id=692395544 instance=ExtResource("11_w48qg")]
-position = Vector2(276, -116)
+position = Vector2(1772, -2683)
 scale = Vector2(1.2800006, 1.2800006)
 
 [node name="Rockmale" parent="." unique_id=1165605115 instance=ExtResource("12_1u8w0")]
-position = Vector2(922, -313)
+position = Vector2(1578, -1518)
 rotation = -3.0934112
 scale = Vector2(0.31964028, 0.579523)
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2019903937]
+position = Vector2(2826, -2541.9998)
+rotation = 2.9568555
+scale = Vector2(0.45396182, 0.6557774)
+
+[node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
+position = Vector2(2661, -1602.0002)
+rotation = -3.3263297
+scale = Vector2(0.45396182, 0.6557774)
+
 [node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
-position = Vector2(951, -645)
+position = Vector2(1357, -2067)
 scale = Vector2(0.23011148, -0.47446373)
 
 [node name="Rytir" parent="." unique_id=102005389 instance=ExtResource("13_2cqfq")]
-position = Vector2(373.00003, -153)
+position = Vector2(814, -394)
 rotation = -3.040831
 scale = Vector2(0.67213404, 0.67213404)
 
 [node name="Tux" parent="." unique_id=1949069651 instance=ExtResource("14_82xsv")]
-position = Vector2(2280.0002, -918.0001)
+position = Vector2(1588, -338)
 rotation = 1.5145512
 scale = Vector2(0.5983885, 0.57249165)
 
 [node name="Postavy" parent="." unique_id=261777931 instance=ExtResource("14_yaehf")]
-position = Vector2(1137, 52.00006)
+position = Vector2(1626, -1182)
 rotation = 0.68459827
 scale = Vector2(1.8066761, 1.8066761)
 
 [node name="Snek2" parent="." unique_id=66239610 instance=ExtResource("5_kek77")]
-position = Vector2(505.99997, -40.00003)
+position = Vector2(643, -741.0001)
 rotation = 2.2542465
 
 [node name="Varhany" parent="." unique_id=327617802 instance=ExtResource("15_074og")]
-position = Vector2(1548.0001, -37.99994)
+position = Vector2(974.0001, -1326)
 rotation = 2.549214
 scale = Vector2(2.0092669, 2.0092669)
 
 [node name="Tree" parent="." unique_id=721592249 instance=ExtResource("16_cegan")]
-position = Vector2(1720.0001, -986)
-rotation = 3.1439135
+position = Vector2(2166, -1552.0001)
+rotation = 0.005019903
 
 [node name="Vetrak" parent="." unique_id=334021481 instance=ExtResource("17_82xsv")]
-position = Vector2(2109, -558)
+position = Vector2(2306, -633)
 rotation = 3.078827
 scale = Vector2(0.20016843, 0.20016843)
 
 [node name="Zvykacka" parent="." unique_id=1277441536 instance=ExtResource("18_getpj")]
-position = Vector2(2041, -1037.0001)
-rotation = 1.7452497
+position = Vector2(2140, -1025)
+rotation = 2.1138344
 
 [node name="Toilet" parent="." unique_id=917885710 instance=ExtResource("20_getpj")]
-position = Vector2(152.00006, -656)
-rotation = 2.233442
+position = Vector2(2308.9998, -923)
+rotation = 6.3690586
 scale = Vector2(0.13279392, 0.13279392)
 
-[node name="Mlyn" parent="." unique_id=363837391 instance=ExtResource("21_getpj")]
-position = Vector2(1020, -913)
-rotation = -0.031595875
-scale = Vector2(1.5796716, 1.5796716)
-
 [node name="Mesic" parent="." unique_id=2054270032 instance=ExtResource("23_0odxb")]
-position = Vector2(889, 133)
+position = Vector2(1865, -262)
 scale = Vector2(0.17965043, 0.17965043)
 
 [node name="Sun" parent="." unique_id=225511849 instance=ExtResource("24_lswn8")]
-position = Vector2(905, -549)
+position = Vector2(2854, -2154)
 
-[node name="Rock5" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
-position = Vector2(2190, -902)
-rotation = 1.9371682
+[node name="Rock5" parent="." unique_id=220256732 instance=ExtResource("2_h2yge")]
+position = Vector2(2295.0002, -1108.0001)
+rotation = 1.5335149
 scale = Vector2(0.63988423, 0.63988423)
-
-[node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
-position = Vector2(2064, -992)
-scale = Vector2(0.4021762, 0.4021762)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 position = Vector2(780, 328)
