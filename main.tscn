@@ -44,15 +44,29 @@ shader_parameter/darken = 0.15
 friction = 0.4
 bounce = 0.2
 
+[sub_resource type="Gradient" id="Gradient_seu75"]
+colors = PackedColorArray(1, 1, 0.7921569, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_44d13"]
+gradient = SubResource("Gradient_seu75")
+width = 700
+height = 700
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Main" type="Node2D" unique_id=2063578211]
 
 [node name="Background" type="Node2D" parent="." unique_id=1896991764]
+light_mask = 2
 
 [node name="Hills" type="Parallax2D" parent="Background" unique_id=1292614113]
+light_mask = 2
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1580, 0)
 
 [node name="Hory" type="Sprite2D" parent="Background/Hills" unique_id=51068488]
+light_mask = 2
 material = SubResource("ShaderMaterial_qsp4k")
 position = Vector2(928, 254)
 scale = Vector2(2, 2)
@@ -204,8 +218,8 @@ rotation = 1.5335149
 scale = Vector2(0.63988423, 0.63988423)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
-position = Vector2(780, 328)
 z_index = 1
+position = Vector2(780, 328)
 physics_material_override = SubResource("PhysicsMaterial_sal4b")
 can_sleep = false
 continuous_cd = 1
@@ -221,6 +235,12 @@ position_smoothing_enabled = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=444595746]
 scale = Vector2(0.12, 0.12)
 polygon = PackedVector2Array(-24.399994, -691, -63.5, -691, -184.3, -640, -186.6, -640, -291.5, -576, -294.2, -576, -380.2, -413, -381.9, -413, -390.9, -294, -392.1, -294, -383, -151.90002, -401, -67.29999, -401, 19.299988, -395, 95.20001, -395, 110.20001, -334, 378.40002, -334, 383.59998, -186, 616.6, -186, 619.4, -61.399994, 667, -58.5, 667, -9.5, 691, 12.700012, 691, 31.399994, 684, 34.299988, 684, 112.400024, 656, 115.900024, 656, 121.900024, 649, 122.900024, 649, 218.90002, 541, 220.09998, 541, 331.09998, 352, 332.59998, 352, 373.7, 164, 374.7, 164, 401, -7.5, 401, -66.099976, 387.7, -159, 401, -290, 401, -327.7, 355, -474.3, 355, -478.8, 245, -597.9, 245, -599.2, 90, -675.3, 90, -676.8)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1682034322]
+color = Color(1, 1, 0.95686275, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_44d13")
+texture_scale = 2.4
 
 [node name="Rope" type="Node2D" parent="." unique_id=604596414 node_paths=PackedStringArray("player", "hand_sprite")]
 script = ExtResource("3_1bvp3")
@@ -241,3 +261,6 @@ texture = ExtResource("5_hopen")
 [node name="Mill" parent="." unique_id=425618874 instance=ExtResource("29_qsp4k")]
 position = Vector2(2642, -3623)
 scale = Vector2(2.487939, 2.487939)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=73994946]
+color = Color(0.31194216, 0.2242862, 0.18741164, 1)
