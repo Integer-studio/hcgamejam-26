@@ -285,7 +285,7 @@ physics_material_override = SubResource("PhysicsMaterial_sal4b")
 can_sleep = false
 continuous_cd = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1873140002]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1873140002 groups=["player_face"]]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_0xm2m")
 
