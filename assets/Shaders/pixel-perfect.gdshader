@@ -1,14 +1,14 @@
 shader_type canvas_item;
 
 group_uniforms color;
-uniform float saturation : hint_range(0.0, 2.0) = 0.75;
+uniform float saturation : hint_range(0.0, 2.0) = 1.0;
 uniform float contrast : hint_range(0.5, 1.5) = 1.05;
 /** Dvoubarevná paleta (stíny -> světla), použije se, když není gradient_map. */
 uniform vec4 shadow_color : source_color = vec4(0.16, 0.10, 0.24, 1.0);
 uniform vec4 highlight_color : source_color = vec4(1.0, 0.93, 0.80, 1.0);
 /** Volitelně: GradientTexture1D s víc barvami palety. */
 uniform sampler2D gradient_map : filter_linear, repeat_disable;
-uniform bool use_gradient_map = false;
+uniform bool use_gradient_map = true;
 /** Kolik palety se přimíchá. 0 = originál, 1 = čistý duotón. */
 uniform float palette_strength : hint_range(0.0, 1.0) = 0.3;
 /** 0 = vypnuto. 6–12 dá jemně "malovaný" vzhled. */

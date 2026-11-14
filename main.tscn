@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
+[ext_resource type="Script" uid="uid://dlpn3yp40v3ll" path="res://tools/foreground.gd" id="6_b1qrp"]
 [ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
@@ -37,11 +38,13 @@
 [ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
-[ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
 [ext_resource type="Texture2D" uid="uid://ctuj4jfbtspxg" path="res://assets/fg/imgs/rock2.png" id="38_b1qrp"]
 [ext_resource type="Script" uid="uid://wulqourlmhf3" path="res://ui/height_meter.gd" id="39_meter"]
+[ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
+[ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
+offsets = PackedFloat32Array(0, 0.23127036)
 colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gn0rm"]
@@ -73,7 +76,8 @@ light_mask = 2
 
 [node name="Slunko" type="Parallax2D" parent="Background" unique_id=1966991583]
 modulate = Color(1, 1, 0.83137256, 1)
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(780, -42)
 
 [node name="Slunko" type="Sprite2D" parent="Background/Slunko" unique_id=498790342]
 light_mask = 2
@@ -81,14 +85,14 @@ position = Vector2(838, -166)
 texture = ExtResource("1_0rl1p")
 
 [node name="PointLight2D" type="PointLight2D" parent="Background/Slunko/Slunko" unique_id=1701078044]
-position = Vector2(25, -205)
-energy = 0.58
+position = Vector2(4, -44)
+energy = 0.41
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_gn0rm")
-texture_scale = 6.82
+texture_scale = 6.29
 
 [node name="Hills3" type="Parallax2D" parent="Background" unique_id=1577846468]
-modulate = Color(0.52906674, 0.52906674, 0.52906656, 1)
+modulate = Color(0.31925523, 0.3192553, 0.31925514, 1)
 light_mask = 2
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(-777, -60)
@@ -102,7 +106,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_qsp4k")
 
 [node name="Hills2" type="Parallax2D" parent="Background" unique_id=2051561196]
-modulate = Color(0.6803209, 0.6803214, 0.6803212, 1)
+modulate = Color(0.45064795, 0.45064837, 0.45064825, 1)
 light_mask = 2
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1580, 0)
@@ -114,8 +118,10 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_qsp4k")
 
 [node name="Hills" type="Parallax2D" parent="Background" unique_id=1292614113]
+modulate = Color(0.62288105, 0.62288105, 0.62288105, 1)
 light_mask = 2
 scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-308, 270)
 repeat_size = Vector2(1580, 0)
 
 [node name="Hory" type="Sprite2D" parent="Background/Hills" unique_id=51068488]
@@ -124,21 +130,21 @@ position = Vector2(595.00006, 457)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_qsp4k")
 
-[node name="Clouds3" type="Parallax2D" parent="." unique_id=1018751024]
+[node name="Clouds3" type="Parallax2D" parent="Background" unique_id=1018751024]
 modulate = Color(0.62288105, 0.62288105, 0.62288105, 1)
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(900, 0)
 autoscroll = Vector2(10, 0)
 repeat_times = 4
 
-[node name="Clouds1" type="Sprite2D" parent="Clouds3" unique_id=1344974199]
+[node name="Clouds1" type="Sprite2D" parent="Background/Clouds3" unique_id=1344974199]
 modulate = Color(0.72464263, 0.7246426, 0.7246426, 1)
 light_mask = 2
 position = Vector2(571, -200)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_jq2sk")
 
-[node name="Clouds1" type="Parallax2D" parent="." unique_id=604436595]
+[node name="Clouds1" type="Parallax2D" parent="Background" unique_id=604436595]
 modulate = Color(0.62288105, 0.62288105, 0.62288105, 1)
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(380, -371)
@@ -146,164 +152,177 @@ repeat_size = Vector2(1100, 0)
 autoscroll = Vector2(-15, 0)
 repeat_times = 4
 
-[node name="Clouds1" type="Sprite2D" parent="Clouds1" unique_id=243342304]
+[node name="Clouds1" type="Sprite2D" parent="Background/Clouds1" unique_id=243342304]
 light_mask = 2
 position = Vector2(1023, 297)
 scale = Vector2(2, 2)
 texture = ExtResource("3_4k2k6")
 
-[node name="Clouds2" type="Parallax2D" parent="." unique_id=1496487003]
+[node name="Clouds2" type="Parallax2D" parent="Background" unique_id=1496487003]
 modulate = Color(0.9007046, 0.90070456, 0.90070456, 1)
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1500, 0)
 autoscroll = Vector2(20, 0)
 repeat_times = 4
 
-[node name="Clouds1" type="Sprite2D" parent="Clouds2" unique_id=704533168]
+[node name="Clouds1" type="Sprite2D" parent="Background/Clouds2" unique_id=704533168]
 light_mask = 2
 position = Vector2(952, 85.999985)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_htxhm")
 
-[node name="Rock7" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
+[node name="Foreground" type="Node2D" parent="." unique_id=312126430]
+script = ExtResource("6_b1qrp")
+fg_material = ExtResource("fg_mat_1")
+
+[node name="Rock7" parent="Foreground" unique_id=2090582565 instance=ExtResource("2_h2yge")]
 position = Vector2(428, 1595.9999)
 scale = Vector2(6.479998, 4.080001)
 
-[node name="Rock8" parent="." unique_id=167538380 instance=ExtResource("2_h2yge")]
+[node name="Rock8" parent="Foreground" unique_id=167538380 instance=ExtResource("2_h2yge")]
 position = Vector2(1558, 1620.9999)
 scale = Vector2(6.479998, 4.080001)
 
-[node name="Rock9" parent="." unique_id=754794911 instance=ExtResource("2_h2yge")]
+[node name="Rock9" parent="Foreground" unique_id=754794911 instance=ExtResource("2_h2yge")]
 position = Vector2(2524, 1506.9999)
 scale = Vector2(6.479998, 4.080001)
 
-[node name="Rock6" parent="." unique_id=492042573 instance=ExtResource("2_h2yge")]
+[node name="Rock6" parent="Foreground" unique_id=492042573 instance=ExtResource("2_h2yge")]
 position = Vector2(3866.0002, -1773)
 rotation = 0.06408739
 scale = Vector2(4.6412816, 15.181104)
 
-[node name="Rock2" parent="." unique_id=1000638153 instance=ExtResource("2_h2yge")]
+[node name="Rock2" parent="Foreground" unique_id=1000638153 instance=ExtResource("2_h2yge")]
 position = Vector2(-518.00006, -2013)
 rotation = -0.12730369
 scale = Vector2(2.7142067, 15.736229)
 
-[node name="Rock4" parent="." unique_id=215727371 instance=ExtResource("2_h2yge")]
+[node name="Rock4" parent="Foreground" unique_id=215727371 instance=ExtResource("2_h2yge")]
 position = Vector2(166, 418.99997)
 rotation = -0.40830535
 scale = Vector2(1.5446235, 2.9018927)
 
-[node name="Rock1" parent="." unique_id=203029634 instance=ExtResource("2_h2yge")]
+[node name="Rock1" parent="Foreground" unique_id=203029634 instance=ExtResource("2_h2yge")]
 position = Vector2(567, 734)
 rotation = 0.15762077
 scale = Vector2(1.9797872, 1.0473214)
 
-[node name="Mlyn" parent="." unique_id=363837391 instance=ExtResource("21_getpj")]
+[node name="Mlyn" parent="Foreground" unique_id=363837391 instance=ExtResource("21_getpj")]
 position = Vector2(3082, -993)
 rotation = -2.5155654
 scale = Vector2(2.423958, 2.7183964)
 
-[node name="Rock3" parent="." unique_id=1050046009 instance=ExtResource("2_7mycd")]
+[node name="Rock3" parent="Foreground" unique_id=1050046009 instance=ExtResource("2_7mycd")]
 position = Vector2(1423, 715)
 scale = Vector2(2.7898853, 0.9675196)
 
-[node name="Chaozz" parent="." unique_id=908453492 instance=ExtResource("3_272bh")]
+[node name="Chaozz" parent="Foreground" unique_id=908453492 instance=ExtResource("3_272bh")]
 position = Vector2(2401, 452.00003)
 scale = Vector2(0.8015971, 0.8632541)
 
-[node name="Lilek" parent="." unique_id=1680965395 instance=ExtResource("4_5vw27")]
+[node name="Lilek" parent="Foreground" unique_id=1680965395 instance=ExtResource("4_5vw27")]
 position = Vector2(2216, 552)
 scale = Vector2(1.4119607, 1.0187924)
 
-[node name="Snek" parent="." unique_id=1799481394 instance=ExtResource("5_kek77")]
+[node name="Snek" parent="Foreground" unique_id=1799481394 instance=ExtResource("5_kek77")]
 position = Vector2(1922, 678)
 scale = Vector2(1.2089063, 1.0854567)
 
-[node name="Cedule" parent="." unique_id=1734713800 instance=ExtResource("6_4c57u")]
+[node name="Cedule" parent="Foreground" unique_id=1734713800 instance=ExtResource("6_4c57u")]
 position = Vector2(2414, 283.00006)
 rotation = 0.4750663
 scale = Vector2(0.2447409, 0.23151179)
 
-[node name="Pila" parent="." unique_id=444560652 instance=ExtResource("7_4c57u")]
+[node name="Pila" parent="Foreground" unique_id=444560652 instance=ExtResource("7_4c57u")]
 position = Vector2(2837, -241.00012)
 rotation = -1.2842988
-scale = Vector2(3.225925, 2.7507877)
+scale = Vector2(3.225925, 2.750788)
 
-[node name="Lizard" parent="." unique_id=1781829167 instance=ExtResource("8_efxa6")]
+[node name="Lizard" parent="Foreground" unique_id=1781829167 instance=ExtResource("8_efxa6")]
 position = Vector2(3067.0002, -685)
 scale = Vector2(0.41935724, 0.40296558)
 
-[node name="Diamond" parent="." unique_id=1182642174 instance=ExtResource("9_dg77c")]
+[node name="Diamond" parent="Foreground" unique_id=1182642174 instance=ExtResource("9_dg77c")]
 position = Vector2(3195, -1116)
 scale = Vector2(1.4790518, 3.8011065)
 
-[node name="Magnet" parent="." unique_id=692395544 instance=ExtResource("11_w48qg")]
+[node name="Magnet" parent="Foreground" unique_id=692395544 instance=ExtResource("11_w48qg")]
 position = Vector2(2252, -2207)
 rotation = -2.748798
 scale = Vector2(1.2800006, 1.2800006)
 
-[node name="Rockmale" parent="." unique_id=1165605115 instance=ExtResource("12_1u8w0")]
+[node name="Rockmale" parent="Foreground" unique_id=1165605115 instance=ExtResource("12_1u8w0")]
 position = Vector2(1667.9999, -3644)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
 
-[node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
+[node name="Ryba2" parent="Foreground" unique_id=2135649931 instance=ExtResource("12_vivmo")]
 position = Vector2(1946, -2076)
 rotation = -0.92934805
-scale = Vector2(0.23011148, -0.47446373)
+scale = Vector2(0.2301115, -0.47446373)
 
-[node name="Rytir" parent="." unique_id=102005389 instance=ExtResource("13_2cqfq")]
+[node name="Rytir" parent="Foreground" unique_id=102005389 instance=ExtResource("13_2cqfq")]
 position = Vector2(2624.0002, -4347)
 rotation = -0.27411607
 scale = Vector2(0.67213404, 0.67213404)
 
-[node name="Tux" parent="." unique_id=1949069651 instance=ExtResource("14_82xsv")]
+[node name="Tux" parent="Foreground" unique_id=1949069651 instance=ExtResource("14_82xsv")]
 position = Vector2(1553, -2951.0002)
 rotation = 1.2943921
 scale = Vector2(0.5983885, 0.57249165)
 
-[node name="Postavy" parent="." unique_id=261777931 instance=ExtResource("14_yaehf")]
+[node name="Postavy" parent="Foreground" unique_id=261777931 instance=ExtResource("14_yaehf")]
 position = Vector2(1373, -3296.0002)
 rotation = 0.03549862
 scale = Vector2(1.8066761, 1.8066761)
 
-[node name="Snek2" parent="." unique_id=66239610 instance=ExtResource("5_kek77")]
+[node name="Snek2" parent="Foreground" unique_id=66239610 instance=ExtResource("5_kek77")]
 position = Vector2(2110, -2780)
-rotation = 3.297905
+rotation = -2.9852803
 
-[node name="Varhany" parent="." unique_id=327617802 instance=ExtResource("15_074og")]
+[node name="Varhany" parent="Foreground" unique_id=327617802 instance=ExtResource("15_074og")]
 position = Vector2(2995, -2697.0002)
-rotation = 4.74622
+rotation = -1.5369653
 scale = Vector2(2.0092669, 2.0092669)
 
-[node name="Tree" parent="." unique_id=721592249 instance=ExtResource("16_cegan")]
+[node name="Tree" parent="Foreground" unique_id=721592249 instance=ExtResource("16_cegan")]
 position = Vector2(2166, -1552.0001)
 rotation = 0.005019903
 
-[node name="Vetrak" parent="." unique_id=334021481 instance=ExtResource("17_82xsv")]
+[node name="Vetrak" parent="Foreground" unique_id=334021481 instance=ExtResource("17_82xsv")]
 position = Vector2(2306, -633)
 rotation = 3.078827
 scale = Vector2(0.20016843, 0.20016843)
 
-[node name="Zvykacka" parent="." unique_id=1277441536 instance=ExtResource("18_getpj")]
+[node name="Zvykacka" parent="Foreground" unique_id=1277441536 instance=ExtResource("18_getpj")]
 position = Vector2(2140, -1025)
 rotation = 2.1138344
 
-[node name="Toilet" parent="." unique_id=917885710 instance=ExtResource("20_getpj")]
+[node name="Toilet" parent="Foreground" unique_id=917885710 instance=ExtResource("20_getpj")]
 position = Vector2(2308.9998, -923)
-rotation = 6.3690586
+rotation = 0.0858733
 scale = Vector2(0.13279392, 0.13279392)
 
-[node name="Mesic" parent="." unique_id=2054270032 instance=ExtResource("23_0odxb")]
+[node name="Mesic" parent="Foreground" unique_id=2054270032 instance=ExtResource("23_0odxb")]
 position = Vector2(1917, -4754)
 scale = Vector2(0.61132324, 0.61132324)
 
-[node name="Sun" parent="." unique_id=225511849 instance=ExtResource("24_lswn8")]
+[node name="Sun" parent="Foreground" unique_id=225511849 instance=ExtResource("24_lswn8")]
 position = Vector2(2854, -2154)
 
-[node name="Rock5" parent="." unique_id=220256732 instance=ExtResource("2_h2yge")]
+[node name="Rock5" parent="Foreground" unique_id=220256732 instance=ExtResource("2_h2yge")]
 position = Vector2(2295.0002, -1108.0001)
 rotation = 1.5335149
 scale = Vector2(0.63988423, 0.63988423)
+
+[node name="Mill" parent="Foreground" unique_id=425618874 instance=ExtResource("29_qsp4k")]
+position = Vector2(2642, -3623)
+scale = Vector2(2.487939, 2.487939)
+
+[node name="Gramofon" parent="Foreground" unique_id=1844181524 instance=ExtResource("36_ok6jj")]
+position = Vector2(2822, -1595.0001)
+rotation = 0.39547664
+scale = Vector2(-0.32247883, -0.32247883)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 z_index = 1
@@ -342,10 +361,6 @@ texture_mode = 1
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_hopen")
 
-[node name="Mill" parent="." unique_id=425618874 instance=ExtResource("29_qsp4k")]
-position = Vector2(2642, -3623)
-scale = Vector2(2.487939, 2.487939)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=73994946]
 color = Color(0.31194216, 0.2242862, 0.18741164, 1)
 
@@ -367,11 +382,6 @@ color = Color(1, 1, 0.95686275, 1)
 energy = 0.75
 texture = SubResource("GradientTexture2D_44d13")
 texture_scale = 2.4
-
-[node name="Gramofon" parent="." unique_id=1844181524 instance=ExtResource("36_ok6jj")]
-position = Vector2(2822, -1595.0001)
-rotation = 0.39547664
-scale = Vector2(-0.32247883, -0.32247883)
 
 [node name="Mrs rock" type="Node" parent="." unique_id=1323432318]
 script = ExtResource("40_mrsrk")

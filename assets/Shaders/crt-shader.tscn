@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://on70j88finba"]
 
 [ext_resource type="Shader" uid="uid://dn4lfanophew4" path="res://assets/Shaders/pixel-perfect.gdshader" id="1_0nh6n"]
-[ext_resource type="Script" path="res://ui/screen_root.gd" id="2_screen"]
 [ext_resource type="Shader" uid="uid://ct01a1rdsn8hl" path="res://assets/Shaders/crt-noscanlines.gdshader" id="1_x555o"]
+[ext_resource type="Script" uid="uid://v4yxe65ehpp" path="res://ui/screen_root.gd" id="2_screen"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0nh6n"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")

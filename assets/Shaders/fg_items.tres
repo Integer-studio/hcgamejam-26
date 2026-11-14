@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://eqgxatcqhdnu"]
+
+[ext_resource type="Shader" uid="uid://dn4lfanophew4" path="res://assets/Shaders/pixel-perfect.gdshader" id="1_owl4n"]
+
+[resource]
+shader = ExtResource("1_owl4n")
+shader_parameter/saturation = 0.75
+shader_parameter/contrast = 1.05
+shader_parameter/shadow_color = Color(0.16, 0.1, 0.24, 1)
+shader_parameter/highlight_color = Color(1, 0.93, 0.8, 1)
+shader_parameter/use_gradient_map = false
+shader_parameter/palette_strength = 0.3
+shader_parameter/posterize_steps = 0.0
+shader_parameter/grain_amount = 0.06
+shader_parameter/grain_size = 1.0
+shader_parameter/grain_fps = 12.0
