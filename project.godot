@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hcgamejam26"
-run/main_scene="uid://crwnfk8rpr3f1"
+run/main_scene="uid://on70j88finba"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
