@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://k16wnxrg6t1i" path="res://assets/fg/imgs/kompas.png" id="1_7jo4q"]
 
-[node name="Kompas" type="StaticBody2D" unique_id=1323175469]
+[node name="Kompas" type="StaticBody2D" unique_id=451803568]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201840133]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734495068]
 texture = ExtResource("1_7jo4q")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1639603544]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=741357203]
 visible = false
 polygon = PackedVector2Array(45, -66.5, -31, -63.5, -49, -63.5, -101, -35.5, -103, -35.5, -98, 36.5, -98, 52.5, -50, 73.5, 39, 73.5, 92, 49.5, 94, 49.5, 97, -18.5, 98, -18.5, 98, -36.5, 45, -67.5)

@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ci14p36khk0wq" path="res://assets/fg/imgs/kornout.png" id="1_ulhdn"]
 
-[node name="Kornout" type="StaticBody2D" unique_id=1198650876]
+[node name="Kornout" type="StaticBody2D" unique_id=1430065336]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1330585392]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1667707311]
 texture = ExtResource("1_ulhdn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=817145248]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=66378272]
 visible = false
 polygon = PackedVector2Array(-17, -77.5, -46, -72.5, -52, -72.5, -65, -62.5, -67, -62.5, -22, 78.5, -22, 80.5, -1, 81.5, 19, 81.5, 62, -57.5, 63, -57.5, 63, -62.5, 34, -74.5, 34, -75.5, -17, -78.5)

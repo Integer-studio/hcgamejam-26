@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
+[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
@@ -26,8 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
 [ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
 [ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
-[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
-[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
+[ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
@@ -95,16 +96,17 @@ position = Vector2(3195, -1116)
 scale = Vector2(1.4790518, 3.8011065)
 
 [node name="Magnet" parent="." unique_id=692395544 instance=ExtResource("11_w48qg")]
-position = Vector2(1772, -2683)
+position = Vector2(2252, -2207)
+rotation = -2.748798
 scale = Vector2(1.2800006, 1.2800006)
 
 [node name="Rockmale" parent="." unique_id=1165605115 instance=ExtResource("12_1u8w0")]
-position = Vector2(1578, -1518)
-rotation = -3.0934112
+position = Vector2(1667.9999, -3644)
+rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2019903937]
-position = Vector2(2826, -2541.9998)
+position = Vector2(2199, -3823.9998)
 rotation = 2.9568555
 scale = Vector2(0.45396182, 0.6557774)
 
@@ -114,31 +116,32 @@ rotation = -3.3263297
 scale = Vector2(0.45396182, 0.6557774)
 
 [node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
-position = Vector2(1357, -2067)
+position = Vector2(1946, -2076)
+rotation = -0.92934805
 scale = Vector2(0.23011148, -0.47446373)
 
 [node name="Rytir" parent="." unique_id=102005389 instance=ExtResource("13_2cqfq")]
-position = Vector2(814, -394)
-rotation = -3.040831
+position = Vector2(2624.0002, -4347)
+rotation = -0.27411607
 scale = Vector2(0.67213404, 0.67213404)
 
 [node name="Tux" parent="." unique_id=1949069651 instance=ExtResource("14_82xsv")]
-position = Vector2(1588, -338)
-rotation = 1.5145512
+position = Vector2(1553, -2951.0002)
+rotation = 1.2943921
 scale = Vector2(0.5983885, 0.57249165)
 
 [node name="Postavy" parent="." unique_id=261777931 instance=ExtResource("14_yaehf")]
-position = Vector2(1626, -1182)
-rotation = 0.68459827
+position = Vector2(1373, -3296.0002)
+rotation = 0.03549862
 scale = Vector2(1.8066761, 1.8066761)
 
 [node name="Snek2" parent="." unique_id=66239610 instance=ExtResource("5_kek77")]
-position = Vector2(643, -741.0001)
-rotation = 2.2542465
+position = Vector2(2110, -2780)
+rotation = 3.297905
 
 [node name="Varhany" parent="." unique_id=327617802 instance=ExtResource("15_074og")]
-position = Vector2(974.0001, -1326)
-rotation = 2.549214
+position = Vector2(2995, -2697.0002)
+rotation = 4.74622
 scale = Vector2(2.0092669, 2.0092669)
 
 [node name="Tree" parent="." unique_id=721592249 instance=ExtResource("16_cegan")]
@@ -160,8 +163,8 @@ rotation = 6.3690586
 scale = Vector2(0.13279392, 0.13279392)
 
 [node name="Mesic" parent="." unique_id=2054270032 instance=ExtResource("23_0odxb")]
-position = Vector2(1865, -262)
-scale = Vector2(0.17965043, 0.17965043)
+position = Vector2(1917, -4754)
+scale = Vector2(0.61132324, 0.61132324)
 
 [node name="Sun" parent="." unique_id=225511849 instance=ExtResource("24_lswn8")]
 position = Vector2(2854, -2154)
@@ -204,3 +207,7 @@ texture_mode = 1
 [node name="Hand" type="Sprite2D" parent="." unique_id=2097015029]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_hopen")
+
+[node name="Mill" parent="." unique_id=425618874 instance=ExtResource("29_qsp4k")]
+position = Vector2(2642, -3623)
+scale = Vector2(2.487939, 2.487939)
