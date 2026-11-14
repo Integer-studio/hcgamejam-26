@@ -38,6 +38,8 @@
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
 [ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
+[ext_resource type="Texture2D" uid="uid://ctuj4jfbtspxg" path="res://assets/fg/imgs/rock2.png" id="38_b1qrp"]
+[ext_resource type="Script" uid="uid://wulqourlmhf3" path="res://ui/height_meter.gd" id="39_meter"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
@@ -374,3 +376,31 @@ scale = Vector2(-0.32247883, -0.32247883)
 [node name="Mrs rock" type="Node" parent="." unique_id=1323432318]
 script = ExtResource("40_mrsrk")
 letters_per_second = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1905625029]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=444426158]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("39_meter")
+
+[node name="Rock2" type="TextureRect" parent="CanvasLayer/Control" unique_id=1456423611]
+modulate = Color(1, 1, 1, 0.6392157)
+self_modulate = Color(1.041, 1.041, 1.041, 1)
+oversampling_with_scale = 2
+light_mask = 0
+texture_filter = 1
+layout_mode = 0
+offset_left = 990.00006
+offset_top = 611.00006
+offset_right = 1514.0
+offset_bottom = 961.00006
+rotation = -1.5704194
+scale = Vector2(1.0572143, 0.20908096)
+mouse_filter = 2
+texture = ExtResource("38_b1qrp")
