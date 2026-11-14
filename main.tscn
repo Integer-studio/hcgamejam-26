@@ -105,11 +105,6 @@ position = Vector2(1667.9999, -3644)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2019903937]
-position = Vector2(2199, -3823.9998)
-rotation = 2.9568555
-scale = Vector2(0.45396182, 0.6557774)
-
 [node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
 position = Vector2(2661, -1602.0002)
 rotation = -3.3263297
