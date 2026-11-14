@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
+[ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
@@ -346,17 +347,6 @@ scale = Vector2(2.487939, 2.487939)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=73994946]
 color = Color(0.31194216, 0.2242862, 0.18741164, 1)
 
-[node name="ROck scene" type="Node" parent="." unique_id=1506724252]
-
-[node name="DialogLayer" type="CanvasLayer" parent="ROck scene" unique_id=1798899109]
-
-[node name="DialogBox" type="PanelContainer" parent="ROck scene/DialogLayer" unique_id=2108354506]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="text" type="Label" parent="ROck scene/DialogLayer/DialogBox" unique_id=1753601876]
-layout_mode = 2
-
 [node name="gameCamera" type="Camera2D" parent="." unique_id=1373795905 node_paths=PackedStringArray("target")]
 position = Vector2(1696, 328)
 zoom = Vector2(0.5, 0.5)
@@ -380,3 +370,7 @@ texture_scale = 2.4
 position = Vector2(2822, -1595.0001)
 rotation = 0.39547664
 scale = Vector2(-0.32247883, -0.32247883)
+
+[node name="Mrs rock" type="Node" parent="." unique_id=1323432318]
+script = ExtResource("40_mrsrk")
+letters_per_second = 40.0

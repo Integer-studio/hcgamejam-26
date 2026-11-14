@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0dnv1qxyklsn" path="res://assets/fg/imgs/rockmale.png" id="1_avcyp"]
 
-[node name="Rockmale" type="StaticBody2D" unique_id=298898609]
+[node name="Rockmale" type="StaticBody2D" unique_id=298898609 groups=["rocks"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1802326688]
 texture = ExtResource("1_avcyp")

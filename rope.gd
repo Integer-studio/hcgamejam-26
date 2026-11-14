@@ -1,5 +1,8 @@
 extends Node2D
 
+signal hand_touched(body: Node)
+signal hand_grabbed(body: Node)
+
 @export var player: RigidBody2D
 @export var hand_sprite: Node2D
 @export var hand_open_texture: Texture2D
@@ -8,7 +11,7 @@ extends Node2D
 @onready var line: Line2D = $Line
 
 @export_group("Shot")
-@export var shoot_speed := 850.0
+@export var shoot_speed := 1400.0
 @export var hand_gravity := 500.0
 @export var max_rope_length := 450.0
 @export var retract_time := 0.2
@@ -226,6 +229,8 @@ func _update_arm(delta: float) -> void:
 		rope_points[hand_index] += hand_velocity + Vector2(0.0, gravity * delta * delta)
 		if not rope_is_loose or grab_after_rope_runs_out:
 			var hit := _raycast(old_hand_position, rope_points[hand_index])
+			if not hit.is_empty():
+				hand_touched.emit(hit.collider)
 			if not hit.is_empty() and not _try_grab(hit.position, hit.normal, hit.collider):
 				var surface_normal: Vector2 = hit.normal
 				var movement := rope_points[hand_index] - old_hand_position
@@ -235,6 +240,8 @@ func _update_arm(delta: float) -> void:
 				rope_is_loose = true
 		if not is_holding and rope_is_loose:
 			var contact := _push_point_out(hand_index, 5.0)
+			if not contact.is_empty():
+				hand_touched.emit(contact.collider)
 			if not contact.is_empty() and grab_after_rope_runs_out:
 				_try_grab(contact.point, contact.normal, contact.collider)
 			if not is_holding:
@@ -316,6 +323,8 @@ func _follow_moving_bodies() -> void:
 
 
 func _try_grab(point: Vector2, surface_normal: Vector2, body: Object = null) -> bool:
+	if body is Node and (body as Node).is_in_group("not_grabbable"):
+		return false
 	var steepness := rad_to_deg(acos(clampf(-surface_normal.y, -1.0, 1.0)))
 	var can_hold := steepness <= max_grab_steepness + 0.01
 	var will_slide := not can_hold and wall_slide_speed > 0.0
@@ -337,6 +346,7 @@ func _try_grab(point: Vector2, surface_normal: Vector2, body: Object = null) -> 
 		_find_bends_from_loose_rope()
 		rope_is_taut = true
 	rope_length = minf(max_rope_length, _get_taut_rope_length())
+	hand_grabbed.emit(body)
 	return true
 
 
