@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c02afq8i04hha" path="res://assets/fg/imgs/mill.png" id="1_1euic"]
 [ext_resource type="Script" uid="uid://dlxtnei0jg4ss" path="res://assets/fg/scenes/rotate.gd" id="1_bp0d1"]
 
-[node name="Mill" type="StaticBody2D" unique_id=425618874]
+[node name="Mill" type="AnimatableBody2D" unique_id=425618874]
 script = ExtResource("1_bp0d1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=338166515]

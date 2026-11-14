@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://on70j88finba"]
 
-[ext_resource type="PackedScene" uid="uid://crwnfk8rpr3f1" path="res://main.tscn" id="1_gvkco"]
+[ext_resource type="Script" path="res://ui/screen_root.gd" id="2_screen"]
 [ext_resource type="Shader" uid="uid://ct01a1rdsn8hl" path="res://assets/Shaders/crt-noscanlines.gdshader" id="1_x555o"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0nh6n"]
@@ -26,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_screen")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1051069790]
 material = SubResource("ShaderMaterial_x555o")
@@ -55,5 +56,3 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
-
-[node name="Main" parent="SubViewportContainer/SubViewport/SubViewportContainer2/SubViewport" unique_id=2063578211 instance=ExtResource("1_gvkco")]

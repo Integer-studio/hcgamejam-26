@@ -63,6 +63,9 @@ var current_rope_length := -1.0
 var reel_time := 0.0
 var reel_speed := 0.0
 var grab_point := Vector2.ZERO
+# What the hand holds on to, so the grab point moves/rotates with it.
+var grab_body: Node2D = null
+var grab_local_point := Vector2.ZERO
 var is_sliding := false
 var wall_normal := Vector2.ZERO
 var time_since_shot := 0.0
@@ -197,6 +200,7 @@ func _update_arm(delta: float) -> void:
 	time_since_shot += delta
 	wave_strength *= exp(-wave_fade_speed * delta)
 	var player_position := player.global_position
+	_follow_moving_bodies()
 
 	if is_holding:
 		if is_sliding:
@@ -222,7 +226,7 @@ func _update_arm(delta: float) -> void:
 		rope_points[hand_index] += hand_velocity + Vector2(0.0, gravity * delta * delta)
 		if not rope_is_loose or grab_after_rope_runs_out:
 			var hit := _raycast(old_hand_position, rope_points[hand_index])
-			if not hit.is_empty() and not _try_grab(hit.position, hit.normal):
+			if not hit.is_empty() and not _try_grab(hit.position, hit.normal, hit.collider):
 				var surface_normal: Vector2 = hit.normal
 				var movement := rope_points[hand_index] - old_hand_position
 				var into_surface := movement.dot(surface_normal)
@@ -232,7 +236,7 @@ func _update_arm(delta: float) -> void:
 		if not is_holding and rope_is_loose:
 			var contact := _push_point_out(hand_index, 5.0)
 			if not contact.is_empty() and grab_after_rope_runs_out:
-				_try_grab(contact.point, contact.normal)
+				_try_grab(contact.point, contact.normal, contact.collider)
 			if not is_holding:
 				rope_length = max_rope_length
 
@@ -300,7 +304,18 @@ func _pull_player(taut_length: float, delta: float) -> void:
 	player.linear_velocity = velocity
 
 
-func _try_grab(point: Vector2, surface_normal: Vector2) -> bool:
+## Moves the grab point and rope bends along with the bodies they are attached to
+## (e.g. a rotating mill). Static bodies don't move, so nothing changes for them.
+func _follow_moving_bodies() -> void:
+	if is_holding and not is_sliding and is_instance_valid(grab_body):
+		grab_point = grab_body.to_global(grab_local_point)
+	for bend in bend_points:
+		var body = bend.get("body")
+		if body != null and is_instance_valid(body):
+			bend.position = (body as Node2D).to_global(bend.local)
+
+
+func _try_grab(point: Vector2, surface_normal: Vector2, body: Object = null) -> bool:
 	var steepness := rad_to_deg(acos(clampf(-surface_normal.y, -1.0, 1.0)))
 	var can_hold := steepness <= max_grab_steepness + 0.01
 	var will_slide := not can_hold and wall_slide_speed > 0.0
@@ -309,6 +324,9 @@ func _try_grab(point: Vector2, surface_normal: Vector2) -> bool:
 	is_holding = true
 	current_rope_length = -1.0
 	grab_point = point + surface_normal * 2.0
+	grab_body = body as Node2D
+	if grab_body:
+		grab_local_point = grab_body.to_local(grab_point)
 	reel_time = 0.0
 	wave_strength = maxf(wave_strength, wave_size * 0.6)
 	is_sliding = will_slide
@@ -360,23 +378,11 @@ func _get_corners(hit: Dictionary) -> Array:
 		return []
 	var shape_node: Object = collider.shape_owner_get_owner(collider.shape_find_owner(hit.shape))
 	var cache_key := shape_node.get_instance_id()
-	if corner_cache.has(cache_key):
-		return corner_cache[cache_key]
-	var outline := PackedVector2Array()
-	if shape_node is CollisionPolygon2D:
-		var shape_transform: Transform2D = shape_node.global_transform
-		for vertex in shape_node.polygon:
-			outline.append(shape_transform * vertex)
-	elif shape_node is CollisionShape2D:
-		var shape_transform: Transform2D = shape_node.global_transform
-		var shape: Shape2D = shape_node.shape
-		if shape is RectangleShape2D:
-			var half_size: Vector2 = shape.size * 0.5
-			for vertex in [Vector2(-half_size.x, -half_size.y), Vector2(half_size.x, -half_size.y), Vector2(half_size.x, half_size.y), Vector2(-half_size.x, half_size.y)]:
-				outline.append(shape_transform * vertex)
-		elif shape is ConvexPolygonShape2D:
-			for vertex in shape.points:
-				outline.append(shape_transform * vertex)
+	if not corner_cache.has(cache_key):
+		corner_cache[cache_key] = _local_outline(collider, shape_node)
+	# The outline is cached in the body's local space and mapped to the world every time,
+	# so moving/rotating bodies (e.g. the mill) stay correct.
+	var outline: PackedVector2Array = (collider.global_transform as Transform2D) * (corner_cache[cache_key] as PackedVector2Array)
 	var corners: Array = []
 	var corner_count := outline.size()
 	if corner_count >= 3:
@@ -392,8 +398,27 @@ func _get_corners(hit: Dictionary) -> Array:
 			var corner_normal := edge_normals[(i - 1 + corner_count) % corner_count] + edge_normals[i]
 			corner_normal = corner_normal.normalized() if corner_normal.length() > 0.001 else edge_normals[i]
 			corners.append({"position": outline[i], "normal": corner_normal})
-	corner_cache[cache_key] = corners
 	return corners
+
+
+func _local_outline(collider: CollisionObject2D, shape_node: Object) -> PackedVector2Array:
+	var to_body: Transform2D = collider.global_transform.affine_inverse()
+	var outline := PackedVector2Array()
+	if shape_node is CollisionPolygon2D:
+		var shape_transform: Transform2D = to_body * shape_node.global_transform
+		for vertex in shape_node.polygon:
+			outline.append(shape_transform * vertex)
+	elif shape_node is CollisionShape2D:
+		var shape_transform: Transform2D = to_body * shape_node.global_transform
+		var shape: Shape2D = shape_node.shape
+		if shape is RectangleShape2D:
+			var half_size: Vector2 = shape.size * 0.5
+			for vertex in [Vector2(-half_size.x, -half_size.y), Vector2(half_size.x, -half_size.y), Vector2(half_size.x, half_size.y), Vector2(-half_size.x, half_size.y)]:
+				outline.append(shape_transform * vertex)
+		elif shape is ConvexPolygonShape2D:
+			for vertex in shape.points:
+				outline.append(shape_transform * vertex)
+	return outline
 
 
 func _find_corner(fixed_end: Vector2, free_end_before: Vector2, free_end_now: Vector2, hit: Dictionary):
@@ -474,7 +499,7 @@ func _update_bends(old_player_position: Vector2, old_hand_position: Vector2) -> 
 		var corner = _find_corner(fixed_end, old_player_position, player_position, hit)
 		if corner == null or _is_known_bend(corner) or bend_points.size() >= 16:
 			break
-		bend_points.append({"position": corner, "side": _which_side(fixed_end, corner, player_position)})
+		bend_points.append(_make_bend(corner, _which_side(fixed_end, corner, player_position), hit.collider))
 	if not is_holding:
 		for _attempt in 4:
 			var fixed_end: Vector2 = bend_points[0].position if bend_points.size() > 0 else player_position
@@ -484,8 +509,16 @@ func _update_bends(old_player_position: Vector2, old_hand_position: Vector2) -> 
 			var corner = _find_corner(fixed_end, old_hand_position, hand_position, hit)
 			if corner == null or _is_known_bend(corner) or bend_points.size() >= 16:
 				break
-			bend_points.push_front({"position": corner, "side": 1})
+			bend_points.push_front(_make_bend(corner, 1, hit.collider))
 			_update_bend_sides()
+
+
+func _make_bend(corner: Vector2, side: int, body: Object) -> Dictionary:
+	var bend := {"position": corner, "side": side}
+	if body is Node2D:
+		bend.body = body
+		bend.local = (body as Node2D).to_local(corner)
+	return bend
 
 
 func _get_taut_rope_points() -> PackedVector2Array:
@@ -539,7 +572,7 @@ func _find_bends_from_loose_rope() -> void:
 			var corner = _find_corner(fixed_end, rope_points[i + 1], target, hit)
 			if corner == null or _is_known_bend(corner) or bend_points.size() >= 16:
 				break
-			bend_points.append({"position": corner, "side": 1})
+			bend_points.append(_make_bend(corner, 1, hit.collider))
 			fixed_end = corner
 	_update_bend_sides()
 
@@ -607,7 +640,7 @@ func _push_point_out(i: int, radius: float) -> Dictionary:
 	var into_surface := velocity.dot(surface_normal)
 	var along_surface := velocity - into_surface * surface_normal
 	previous_rope_points[i] = rope_points[i] - (along_surface * (1.0 - rope_friction) + maxf(0.0, into_surface) * surface_normal)
-	return {"point": contact_point, "normal": surface_normal}
+	return {"point": contact_point, "normal": surface_normal, "collider": instance_from_id(contact.collider_id)}
 
 
 func _push_links_off_corners() -> void:

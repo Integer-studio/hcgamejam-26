@@ -34,7 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
 [ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
+[ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
+[ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
@@ -188,7 +190,7 @@ rotation = -0.40830535
 scale = Vector2(1.5446235, 2.9018927)
 
 [node name="Rock1" parent="." unique_id=203029634 instance=ExtResource("2_h2yge")]
-position = Vector2(603, 745)
+position = Vector2(567, 734)
 rotation = 0.15762077
 scale = Vector2(1.9797872, 1.0473214)
 
@@ -198,7 +200,7 @@ rotation = -2.5155654
 scale = Vector2(2.423958, 2.7183964)
 
 [node name="Rock3" parent="." unique_id=1050046009 instance=ExtResource("2_7mycd")]
-position = Vector2(1290, 736)
+position = Vector2(1423, 715)
 scale = Vector2(2.7898853, 0.9675196)
 
 [node name="Chaozz" parent="." unique_id=908453492 instance=ExtResource("3_272bh")]
@@ -240,11 +242,6 @@ scale = Vector2(1.2800006, 1.2800006)
 position = Vector2(1667.9999, -3644)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
-
-[node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
-position = Vector2(2661, -1602.0002)
-rotation = -3.3263297
-scale = Vector2(0.45396182, 0.6557774)
 
 [node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
 position = Vector2(1946, -2076)
@@ -307,18 +304,14 @@ scale = Vector2(0.63988423, 0.63988423)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 z_index = 1
-position = Vector2(780, 328)
+position = Vector2(1696, 328)
 physics_material_override = SubResource("PhysicsMaterial_sal4b")
 can_sleep = false
 continuous_cd = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1873140002]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1873140002 groups=["player_face"]]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_0xm2m")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1373795905]
-zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=444595746]
 scale = Vector2(0.12, 0.12)
@@ -353,6 +346,23 @@ scale = Vector2(2.487939, 2.487939)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=73994946]
 color = Color(0.31194216, 0.2242862, 0.18741164, 1)
 
+[node name="ROck scene" type="Node" parent="." unique_id=1506724252]
+
+[node name="DialogLayer" type="CanvasLayer" parent="ROck scene" unique_id=1798899109]
+
+[node name="DialogBox" type="PanelContainer" parent="ROck scene/DialogLayer" unique_id=2108354506]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="text" type="Label" parent="ROck scene/DialogLayer/DialogBox" unique_id=1753601876]
+layout_mode = 2
+
+[node name="gameCamera" type="Camera2D" parent="." unique_id=1373795905 node_paths=PackedStringArray("target")]
+position = Vector2(1696, 328)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("32_htxhm")
+target = NodePath("../Player")
+
 [node name="DebugCamera" type="Camera2D" parent="." unique_id=883406707]
 unique_name_in_owner = true
 zoom = Vector2(0.5, 0.5)
@@ -365,3 +375,8 @@ color = Color(1, 1, 0.95686275, 1)
 energy = 0.75
 texture = SubResource("GradientTexture2D_44d13")
 texture_scale = 2.4
+
+[node name="Gramofon" parent="." unique_id=1844181524 instance=ExtResource("36_ok6jj")]
+position = Vector2(2822, -1595.0001)
+rotation = 0.39547664
+scale = Vector2(-0.32247883, -0.32247883)

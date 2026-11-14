@@ -1,0 +1,12 @@
+[project]
+name = "face-capture"
+version = "0.1.0"
+description = "Local (desktop) webcam face capture for the player sprite"
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python>=4.10",
+    "numpy>=2.0",
+]
+
+[tool.uv]
+package = false
