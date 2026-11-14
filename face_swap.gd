@@ -22,6 +22,8 @@ var _timer: Timer
 
 
 func _ready() -> void:
+	# The face can be found while the menu is shown; give it to the player when the level loads.
+	get_tree().node_added.connect(_on_node_added)
 	if OS.has_feature("web"):
 		_start_web()
 	else:
@@ -119,6 +121,11 @@ func _apply(image: Image) -> void:
 	for node in get_tree().get_nodes_in_group(GROUP):
 		if node is Sprite2D:
 			_swap(node)
+
+
+func _on_node_added(node: Node) -> void:
+	if face_texture and node is Sprite2D and node.is_in_group(GROUP):
+		(node as Sprite2D).texture = face_texture
 
 
 func _swap(sprite: Sprite2D) -> void:
