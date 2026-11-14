@@ -1,14 +1,6 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
 [ext_resource type="Texture2D" uid="uid://brrpmi71i62xc" path="res://assets/bg/spago.png" id="1_0cbny"]
-[ext_resource type="Texture2D" uid="uid://ckxwbtft0snoj" path="res://assets/bg/planeta3.png" id="3_uit24"]
-[ext_resource type="Texture2D" uid="uid://bptg8bb7fiw0d" path="res://assets/bg/face1.png" id="8_e71vb"]
-[ext_resource type="Script" uid="uid://cam0mfun4uvb4" path="res://assets/fg/scenes/rotate_texture_random.gd" id="9_e71vb"]
-[ext_resource type="Texture2D" uid="uid://lmcekv8xiej1" path="res://assets/bg/face2.png" id="10_vke2r"]
-[ext_resource type="Texture2D" uid="uid://dtogvijfm23ou" path="res://assets/bg/face3.png" id="11_uit24"]
-[ext_resource type="Texture2D" uid="uid://cvymv565xxmjw" path="res://assets/bg/face4.png" id="12_ruth0"]
-[ext_resource type="Texture2D" uid="uid://cp4b3gq6btnat" path="res://assets/bg/planeta1.png" id="13_rnkwl"]
-[ext_resource type="Texture2D" uid="uid://cac7pe28drpm4" path="res://assets/bg/planeta2.png" id="14_vke2r"]
 [ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
 [ext_resource type="Texture2D" uid="uid://dwhm036k112i6" path="res://assets/bg/hory.png" id="1_qsp4k"]
@@ -19,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c1cxsvm1dghc5" path="res://rope.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://886fya2wjx6e" path="res://assets/bg/clouds2.png" id="3_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://ckxwbtft0snoj" path="res://assets/bg/planeta3.png" id="3_uit24"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
@@ -29,13 +22,20 @@
 [ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 [ext_resource type="PackedScene" uid="uid://dg8karnbr0vxh" path="res://assets/fg/scenes/myiska.tscn" id="7_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bptg8bb7fiw0d" path="res://assets/bg/face1.png" id="8_e71vb"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
+[ext_resource type="Script" uid="uid://cam0mfun4uvb4" path="res://assets/fg/scenes/rotate_texture_random.gd" id="9_e71vb"]
+[ext_resource type="Texture2D" uid="uid://lmcekv8xiej1" path="res://assets/bg/face2.png" id="10_vke2r"]
+[ext_resource type="Texture2D" uid="uid://dtogvijfm23ou" path="res://assets/bg/face3.png" id="11_uit24"]
 [ext_resource type="PackedScene" uid="uid://tvh47s1la3s8" path="res://assets/fg/scenes/magnet.tscn" id="11_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cl627e1mygysk" path="res://assets/fg/scenes/rockmale.tscn" id="12_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://cvymv565xxmjw" path="res://assets/bg/face4.png" id="12_ruth0"]
 [ext_resource type="PackedScene" uid="uid://8ai4g8x1x7md" path="res://assets/fg/scenes/ryba2.tscn" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://qto2avoqptax" path="res://assets/fg/scenes/rytir.tscn" id="13_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cp4b3gq6btnat" path="res://assets/bg/planeta1.png" id="13_rnkwl"]
 [ext_resource type="PackedScene" uid="uid://bfxrnr2urk2v0" path="res://assets/fg/scenes/tux.tscn" id="14_82xsv"]
+[ext_resource type="Texture2D" uid="uid://cac7pe28drpm4" path="res://assets/bg/planeta2.png" id="14_vke2r"]
 [ext_resource type="PackedScene" uid="uid://dkobh7sknk07v" path="res://assets/fg/scenes/postavy.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://dc3hd61xocur8" path="res://assets/fg/scenes/varhany.tscn" id="15_074og"]
 [ext_resource type="PackedScene" uid="uid://ckgkkpg84qumr" path="res://assets/fg/scenes/tree.tscn" id="16_cegan"]
@@ -61,6 +61,7 @@
 [ext_resource type="PackedScene" uid="uid://d3hod4ypkbfg2" path="res://assets/fg/scenes/ryba1.tscn" id="44_gngh3"]
 [ext_resource type="PackedScene" uid="uid://blw23fktffbg0" path="res://assets/fg/scenes/kornout.tscn" id="49_0cbny"]
 [ext_resource type="Texture2D" uid="uid://blkx3uadkjeut" path="res://assets/fg/imgs/dezo.png" id="53_abqjc"]
+[ext_resource type="PackedScene" uid="uid://cbxph7iptlsj1" path="res://assets/fg/scenes/kompas.tscn" id="63_sm6fg"]
 [ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
@@ -413,7 +414,7 @@ position = Vector2(2252, -2207)
 rotation = -2.748798
 scale = Vector2(1.2800006, 1.2800006)
 
-[node name="Rockmale" parent="Foreground" unique_id=1165605115 instance=ExtResource("12_1u8w0")]
+[node name="Rockmale" parent="Foreground" unique_id=1165605115 groups=["rocks"] instance=ExtResource("12_1u8w0")]
 position = Vector2(1794.9999, -3527.9998)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
@@ -472,11 +473,6 @@ scale = Vector2(0.61132324, 0.61132324)
 [node name="Sun" parent="Foreground" unique_id=225511849 instance=ExtResource("24_lswn8")]
 position = Vector2(2854, -2154)
 
-[node name="Rock5" parent="Foreground" unique_id=220256732 instance=ExtResource("2_h2yge")]
-position = Vector2(2295.0002, -1108.0001)
-rotation = 1.5335149
-scale = Vector2(0.63988423, 0.63988423)
-
 [node name="Mill" parent="Foreground" unique_id=425618874 instance=ExtResource("29_qsp4k")]
 position = Vector2(2642, -3623)
 scale = Vector2(2.487939, 2.487939)
@@ -516,11 +512,6 @@ scale = Vector2(1.2938663, 0.7241119)
 position = Vector2(2117, -3333.9998)
 rotation = -2.2169135
 scale = Vector2(1.2938663, 0.7241119)
-
-[node name="Snek3" parent="Foreground" unique_id=1536930889 instance=ExtResource("5_kek77")]
-position = Vector2(2416, -1184)
-rotation = 0.43608263
-scale = Vector2(0.41008413, 0.41008413)
 
 [node name="Piano" parent="Foreground" unique_id=1932888241 instance=ExtResource("41_4lmeg")]
 position = Vector2(574, -4805)
@@ -695,3 +686,6 @@ position = Vector2(1495, 338)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dezo/Area2D" unique_id=1527380275]
 position = Vector2(177.5, 100)
 shape = SubResource("RectangleShape2D_sal4b")
+
+[node name="Kompas" parent="." unique_id=451803568 instance=ExtResource("63_sm6fg")]
+position = Vector2(2321, -1141)
