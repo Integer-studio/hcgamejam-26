@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
 [ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
+[ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
@@ -215,11 +216,6 @@ position = Vector2(1667.9999, -3644)
 rotation = -1.6154599
 scale = Vector2(0.31964028, 0.579523)
 
-[node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
-position = Vector2(2661, -1602.0002)
-rotation = -3.3263297
-scale = Vector2(0.45396182, 0.6557774)
-
 [node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
 position = Vector2(1946, -2076)
 rotation = -0.92934805
@@ -344,3 +340,8 @@ target = NodePath("../Player")
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 script = ExtResource("34_4k2k6")
+
+[node name="Gramofon" parent="." unique_id=1844181524 instance=ExtResource("36_ok6jj")]
+position = Vector2(2822, -1595.0001)
+rotation = 0.39547664
+scale = Vector2(-0.32247883, -0.32247883)
