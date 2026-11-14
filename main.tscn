@@ -56,8 +56,8 @@ fill_to = Vector2(0.5, 0)
 light_mask = 2
 
 [node name="Hills3" type="Parallax2D" parent="Background" unique_id=1577846468]
+modulate = Color(0.52906674, 0.52906674, 0.52906656, 1)
 light_mask = 2
-modulate = Color(0.38422894, 0.384229, 0.38422883, 1)
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(-777, -60)
 repeat_size = Vector2(1580, 0)
@@ -70,8 +70,8 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_qsp4k")
 
 [node name="Hills2" type="Parallax2D" parent="Background" unique_id=2051561196]
+modulate = Color(0.6803209, 0.6803214, 0.6803212, 1)
 light_mask = 2
-modulate = Color(0.5290664, 0.5290668, 0.5290664, 1)
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1580, 0)
 
@@ -83,7 +83,6 @@ texture = ExtResource("1_qsp4k")
 
 [node name="Hills" type="Parallax2D" parent="Background" unique_id=1292614113]
 light_mask = 2
-modulate = Color(0.7647059, 0.7647059, 0.7647059, 1)
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(1580, 0)
 
@@ -117,12 +116,12 @@ repeat_times = 4
 
 [node name="Clouds1" type="Sprite2D" parent="Clouds1" unique_id=243342304]
 light_mask = 2
-position = Vector2(719, -64)
+position = Vector2(1023, 297)
 scale = Vector2(2, 2)
 texture = ExtResource("3_4k2k6")
 
 [node name="Clouds2" type="Parallax2D" parent="." unique_id=1496487003]
-modulate = Color(0.7647059, 0.7647059, 0.7647059, 1)
+modulate = Color(0.9007046, 0.90070456, 0.90070456, 1)
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1500, 0)
 autoscroll = Vector2(20, 0)
