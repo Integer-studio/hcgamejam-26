@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dlpn3yp40v3ll" path="res://tools/foreground.gd" id="6_b1qrp"]
 [ext_resource type="Shader" uid="uid://dpjbmrtjqudeh" path="res://assets/Shaders/bg.gdshader" id="6_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
+[ext_resource type="PackedScene" uid="uid://dg8karnbr0vxh" path="res://assets/fg/scenes/myiska.tscn" id="7_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
@@ -38,18 +39,20 @@
 [ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
 [ext_resource type="Script" uid="uid://5hwp8cv4thct" path="res://game_camera.gd" id="32_htxhm"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
+[ext_resource type="Script" uid="uid://co3hegdquf78y" path="res://Rock_scene.gd" id="34_ok6jj"]
 [ext_resource type="PackedScene" uid="uid://bvo6i5nt8si3p" path="res://assets/fg/scenes/gramofon.tscn" id="36_ok6jj"]
 [ext_resource type="Texture2D" uid="uid://ctuj4jfbtspxg" path="res://assets/fg/imgs/rock2.png" id="38_b1qrp"]
+[ext_resource type="PackedScene" uid="uid://cmveaj5i74oo8" path="res://assets/fg/scenes/kyf.tscn" id="38_f6a44"]
 [ext_resource type="Script" uid="uid://wulqourlmhf3" path="res://ui/height_meter.gd" id="39_meter"]
 [ext_resource type="Script" uid="uid://crr2olk7sfxlr" path="res://rock_grab_event.gd" id="40_mrsrk"]
-[ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
-[ext_resource type="PackedScene" uid="uid://dg8karnbr0vxh" path="res://assets/fg/scenes/myiska.tscn" id="7_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://bvwu6iy4hrgdm" path="res://assets/fg/scenes/piano.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://dj0rerx0lypw6" path="res://assets/fg/scenes/oko.tscn" id="42_0cp0l"]
+[ext_resource type="Script" uid="uid://py57ig0wdlr3" path="res://dialog_line.gd" id="42_dline"]
 [ext_resource type="PackedScene" uid="uid://3ysl3scopeg7" path="res://assets/fg/scenes/cesar.tscn" id="43_d2t1y"]
 [ext_resource type="PackedScene" uid="uid://d3hod4ypkbfg2" path="res://assets/fg/scenes/ryba1.tscn" id="44_gngh3"]
-[ext_resource type="PackedScene" uid="uid://cmveaj5i74oo8" path="res://assets/fg/scenes/kyf.tscn" id="38_f6a44"]
 [ext_resource type="PackedScene" uid="uid://blw23fktffbg0" path="res://assets/fg/scenes/kornout.tscn" id="49_0cbny"]
+[ext_resource type="Texture2D" uid="uid://blkx3uadkjeut" path="res://assets/fg/imgs/dezo.png" id="53_abqjc"]
+[ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 offsets = PackedFloat32Array(0, 0.23127036)
@@ -75,7 +78,7 @@ shader_parameter/warm_a = Color(0.3, 0.13, 0.04, 1)
 shader_parameter/warm_b = Color(0.26, 0.06, 0.07, 1)
 shader_parameter/star_tint = Color(1, 0.9, 0.75, 1)
 shader_parameter/brightness = 1.0
-shader_parameter/clouds_resolution = 2.4499999452376002
+shader_parameter/clouds_resolution = 2.4499999452376
 shader_parameter/clouds_intesity = 0.0
 shader_parameter/waveyness = 0.5
 shader_parameter/fragmentation = 7.0
@@ -99,6 +102,29 @@ height = 700
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Resource" id="DialogLine_heyyou"]
+script = ExtResource("42_dline")
+text = "whatch ya doing in my hood?"
+zoom_on = NodePath("../Foreground/Dezo")
+
+[sub_resource type="Resource" id="DialogLine_wife"]
+script = ExtResource("42_dline")
+text = "you better bounce choom before i do something to you..."
+zoom_on = NodePath("../Foreground/Dezo")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sal4b"]
+size = Vector2(901, 558)
+
+[sub_resource type="Resource" id="Resource_abqjc"]
+script = ExtResource("42_dline")
+text = "Whaaat???"
+zoom_on = NodePath("../Player")
+
+[sub_resource type="Resource" id="Resource_sal4b"]
+script = ExtResource("42_dline")
+text = "anyway.... what happend to your face?"
+zoom_on = NodePath("../Foreground/Dezo")
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
@@ -237,8 +263,8 @@ scale = Vector2(0.1619994, 0.24009205)
 skew = 0.23521495
 
 [node name="Rock6" parent="Foreground" unique_id=492042573 instance=ExtResource("2_h2yge")]
-position = Vector2(3866.0002, -1773)
-rotation = 0.06408739
+position = Vector2(4090, -1793.9999)
+rotation = 0.23900972
 scale = Vector2(4.6412816, 15.181104)
 
 [node name="Rock2" parent="Foreground" unique_id=1000638153 instance=ExtResource("2_h2yge")]
@@ -272,6 +298,12 @@ scale = Vector2(0.8015971, 0.8632541)
 [node name="Lilek" parent="Foreground" unique_id=1680965395 instance=ExtResource("4_5vw27")]
 position = Vector2(2216, 552)
 scale = Vector2(1.4119607, 1.0187924)
+
+[node name="Dezo" type="Sprite2D" parent="Foreground" unique_id=2018074000]
+material = ExtResource("fg_mat_1")
+position = Vector2(1871, 534)
+scale = Vector2(0.39999753, 0.5999976)
+texture = ExtResource("53_abqjc")
 
 [node name="Snek" parent="Foreground" unique_id=1799481394 instance=ExtResource("5_kek77")]
 position = Vector2(1922, 678)
@@ -373,10 +405,103 @@ position = Vector2(2822, -1595.0001)
 rotation = 0.39547664
 scale = Vector2(-0.32247883, -0.32247883)
 
+[node name="Rock13" parent="Foreground" unique_id=1171427057 instance=ExtResource("2_h2yge")]
+position = Vector2(3823.9995, -10806)
+rotation = -1.0471976
+scale = Vector2(4.6412816, 15.181104)
+
+[node name="Rock12" parent="Foreground" unique_id=1635247480 instance=ExtResource("2_h2yge")]
+position = Vector2(808.99927, -10354.001)
+rotation = 1.0471976
+scale = Vector2(2.7142067, 15.736229)
+
+[node name="Kornout" parent="Foreground" unique_id=1430065336 instance=ExtResource("49_0cbny")]
+position = Vector2(2247, -9747)
+
+[node name="Lilek2" parent="Foreground" unique_id=1996903948 instance=ExtResource("4_5vw27")]
+position = Vector2(2501, -10357)
+
+[node name="Rock10" parent="Foreground" unique_id=1007362549 instance=ExtResource("2_7mycd")]
+position = Vector2(2500.0002, -3037.0002)
+rotation = -2.9160519
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Rock10" parent="Foreground/Rock10" unique_id=946802537 instance=ExtResource("2_7mycd")]
+position = Vector2(2500.0002, -3037.0002)
+rotation = -2.9160519
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Rock11" parent="Foreground" unique_id=1157260391 instance=ExtResource("2_7mycd")]
+position = Vector2(2117, -3333.9998)
+rotation = -2.2169135
+scale = Vector2(1.2938663, 0.7241119)
+
+[node name="Snek3" parent="Foreground" unique_id=1536930889 instance=ExtResource("5_kek77")]
+position = Vector2(2416, -1184)
+rotation = 0.43608263
+scale = Vector2(0.41008413, 0.41008413)
+
+[node name="Piano" parent="Foreground" unique_id=1932888241 instance=ExtResource("41_4lmeg")]
+position = Vector2(678, -4736)
+
+[node name="Oko" parent="Foreground" unique_id=1547321877 instance=ExtResource("42_0cp0l")]
+position = Vector2(2734, -249.99997)
+rotation = 3.035928
+
+[node name="Cesar" parent="Foreground" unique_id=1903022562 instance=ExtResource("43_d2t1y")]
+position = Vector2(517, -5010)
+
+[node name="Magnet2" parent="Foreground" unique_id=479238729 instance=ExtResource("11_w48qg")]
+position = Vector2(879, -5269)
+
+[node name="Magnet3" parent="Foreground" unique_id=1927734702 instance=ExtResource("11_w48qg")]
+position = Vector2(540, -5570)
+rotation = 3.1411436
+
+[node name="Magnet4" parent="Foreground" unique_id=784026999 instance=ExtResource("11_w48qg")]
+position = Vector2(908, -5852)
+
+[node name="Magnet5" parent="Foreground" unique_id=1757439108 instance=ExtResource("11_w48qg")]
+position = Vector2(540, -6127)
+
+[node name="Pila2" parent="Foreground" unique_id=1107917889 instance=ExtResource("7_4c57u")]
+position = Vector2(1423.0002, -6952)
+rotation = -1.3089969
+scale = Vector2(4.0049653, 4.0049653)
+
+[node name="Ryba1" parent="Foreground" unique_id=1347373926 instance=ExtResource("44_gngh3")]
+position = Vector2(978.0001, 591)
+rotation = 0.2617994
+scale = Vector2(0.61661875, 0.61661875)
+
+[node name="Rock14" parent="Foreground" unique_id=537483904 instance=ExtResource("2_h2yge")]
+position = Vector2(-1002, -6117)
+rotation = -0.12730369
+scale = Vector2(2.7142067, 15.736229)
+
+[node name="Rock15" parent="Foreground" unique_id=1788786328 instance=ExtResource("2_h2yge")]
+position = Vector2(4811, -6820)
+rotation = 0.06408739
+scale = Vector2(4.6412816, 15.181104)
+
+[node name="Piano2" parent="Foreground" unique_id=1373107552 instance=ExtResource("41_4lmeg")]
+position = Vector2(978, -4667)
+
+[node name="Piano3" parent="Foreground" unique_id=387362539 instance=ExtResource("41_4lmeg")]
+position = Vector2(1295, -4586)
+
+[node name="Mill2" parent="Foreground" unique_id=707506709 instance=ExtResource("29_qsp4k")]
+position = Vector2(1702, -7803)
+speed_deg = 500.0
+
+[node name="Kyf" parent="Foreground" unique_id=424718151 instance=ExtResource("38_f6a44")]
+position = Vector2(1767, -9330)
+
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 z_index = 1
-position = Vector2(1696, 328)
+position = Vector2(1125, 310)
 physics_material_override = SubResource("PhysicsMaterial_sal4b")
+gravity_scale = 1.25
 can_sleep = false
 continuous_cd = 1
 
@@ -464,94 +589,28 @@ scale = Vector2(1.0572143, 0.20908096)
 mouse_filter = 2
 texture = ExtResource("38_b1qrp")
 
-[node name="Rock13" parent="Foreground" unique_id=1171427057 instance=ExtResource("2_h2yge")]
-position = Vector2(3823.9995, -10806)
-rotation = -1.0471976
-scale = Vector2(4.6412816, 15.181104)
+[node name="RRRRock" type="Node" parent="." unique_id=1849864201 node_paths=PackedStringArray("trigger_area")]
+script = ExtResource("34_ok6jj")
+trigger = 1
+trigger_area = NodePath("Area2D")
+dialog = Array[ExtResource("42_dline")]([SubResource("DialogLine_heyyou"), SubResource("DialogLine_wife")])
 
-[node name="Rock12" parent="Foreground" unique_id=1635247480 instance=ExtResource("2_h2yge")]
-position = Vector2(808.99927, -10354.001)
-rotation = 1.0471976
-scale = Vector2(2.7142067, 15.736229)
+[node name="Area2D" type="Area2D" parent="RRRRock" unique_id=2028525118]
+position = Vector2(1664, -3319)
 
-[node name="Kornout" parent="Foreground" unique_id=1430065336 instance=ExtResource("49_0cbny")]
-position = Vector2(2247, -9747)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RRRRock/Area2D" unique_id=1309931988]
+position = Vector2(72, 51.25)
+shape = SubResource("RectangleShape2D_sal4b")
 
-[node name="Lilek" parent="Foreground" unique_id=1996903948 instance=ExtResource("4_5vw27")]
-position = Vector2(2501, -10357)
+[node name="Dezo" type="Node" parent="." unique_id=277529879 node_paths=PackedStringArray("trigger_area")]
+script = ExtResource("34_ok6jj")
+trigger = 1
+trigger_area = NodePath("Area2D")
+dialog = Array[ExtResource("42_dline")]([SubResource("DialogLine_heyyou"), SubResource("DialogLine_wife"), SubResource("Resource_abqjc"), SubResource("Resource_sal4b")])
 
-[node name="Rock10" parent="Foreground" unique_id=1007362549 instance=ExtResource("2_7mycd")]
-position = Vector2(2500.0002, -3037.0002)
-rotation = -2.9160519
-scale = Vector2(1.2938663, 0.7241119)
+[node name="Area2D" type="Area2D" parent="Dezo" unique_id=1111676991]
+position = Vector2(1495, 338)
 
-[node name="Rock10" parent="Foreground/Rock10" unique_id=946802537 instance=ExtResource("2_7mycd")]
-position = Vector2(2500.0002, -3037.0002)
-rotation = -2.9160519
-scale = Vector2(1.2938663, 0.7241119)
-
-[node name="Rock11" parent="Foreground" unique_id=1157260391 instance=ExtResource("2_7mycd")]
-position = Vector2(2117, -3333.9998)
-rotation = -2.2169135
-scale = Vector2(1.2938663, 0.7241119)
-
-[node name="Snek3" parent="Foreground" unique_id=1536930889 instance=ExtResource("5_kek77")]
-position = Vector2(2416, -1184)
-rotation = 0.43608263
-scale = Vector2(0.41008413, 0.41008413)
-
-[node name="Piano" parent="Foreground" unique_id=1932888241 instance=ExtResource("41_4lmeg")]
-position = Vector2(678, -4736)
-
-[node name="Oko" parent="Foreground" unique_id=1547321877 instance=ExtResource("42_0cp0l")]
-position = Vector2(2734, -249.99997)
-rotation = 3.035928
-
-[node name="Cesar" parent="Foreground" unique_id=1903022562 instance=ExtResource("43_d2t1y")]
-position = Vector2(517, -5010)
-
-[node name="Magnet2" parent="Foreground" unique_id=479238729 instance=ExtResource("11_w48qg")]
-position = Vector2(879, -5269)
-
-[node name="Magnet3" parent="Foreground" unique_id=1927734702 instance=ExtResource("11_w48qg")]
-position = Vector2(540, -5570)
-rotation = 3.1411436
-
-[node name="Magnet4" parent="Foreground" unique_id=784026999 instance=ExtResource("11_w48qg")]
-position = Vector2(908, -5852)
-
-[node name="Magnet5" parent="Foreground" unique_id=1757439108 instance=ExtResource("11_w48qg")]
-position = Vector2(540, -6127)
-
-[node name="Pila2" parent="Foreground" unique_id=1107917889 instance=ExtResource("7_4c57u")]
-position = Vector2(1423.0002, -6952)
-rotation = -1.3089969
-scale = Vector2(4.0049653, 4.0049653)
-
-[node name="Ryba1" parent="Foreground" unique_id=1347373926 instance=ExtResource("44_gngh3")]
-position = Vector2(978.0001, 591)
-rotation = 0.2617994
-scale = Vector2(0.61661875, 0.61661875)
-
-[node name="Rock12" parent="Foreground" unique_id=537483904 instance=ExtResource("2_h2yge")]
-position = Vector2(-719.9999, -6052)
-rotation = -0.12730369
-scale = Vector2(2.7142067, 15.736229)
-
-[node name="Rock13" parent="Foreground" unique_id=1788786328 instance=ExtResource("2_h2yge")]
-position = Vector2(4516, -6787)
-rotation = 0.06408739
-scale = Vector2(4.6412816, 15.181104)
-
-[node name="Piano2" parent="Foreground" unique_id=1373107552 instance=ExtResource("41_4lmeg")]
-position = Vector2(978, -4667)
-
-[node name="Piano3" parent="Foreground" unique_id=387362539 instance=ExtResource("41_4lmeg")]
-position = Vector2(1295, -4586)
-
-[node name="Mill2" parent="Foreground" unique_id=707506709 instance=ExtResource("29_qsp4k")]
-position = Vector2(1702, -7803)
-speed_deg = 500.0
-
-[node name="Kyf" parent="Foreground" unique_id=424718151 instance=ExtResource("38_f6a44")]
-position = Vector2(1767, -9330)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dezo/Area2D" unique_id=1527380275]
+position = Vector2(177.5, 100)
+shape = SubResource("RectangleShape2D_sal4b")

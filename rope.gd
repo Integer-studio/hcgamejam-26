@@ -11,7 +11,7 @@ signal hand_grabbed(body: Node)
 @onready var line: Line2D = $Line
 
 @export_group("Shot")
-@export var shoot_speed := 1400.0
+@export var shoot_speed := 1150.0
 @export var hand_gravity := 500.0
 @export var max_rope_length := 450.0
 @export var retract_time := 0.2
@@ -69,6 +69,7 @@ var rope_length := 0.0
 var current_rope_length := -1.0
 var reel_time := 0.0
 var reel_speed := 0.0
+var reel_paused := false
 var grab_point := Vector2.ZERO
 # What the hand holds on to, so the grab point moves/rotates with it.
 var grab_body: Node2D = null
@@ -241,7 +242,9 @@ func _update_arm(delta: float) -> void:
 	if is_holding:
 		if is_sliding:
 			_slide_hand(delta)
-		if is_holding:
+		if is_holding and reel_paused:
+			reel_speed = 0.0
+		elif is_holding:
 			reel_time += delta
 			reel_speed = minf(max_reel_speed, starting_reel_speed + reel_acceleration * reel_time)
 			if current_rope_length < 0.0 or current_rope_length - (rope_length - reel_speed * delta) <= max_stretch:

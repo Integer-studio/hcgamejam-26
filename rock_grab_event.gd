@@ -94,6 +94,7 @@ func _on_hand_grabbed(body: Node) -> void:
 		for each_rock in get_tree().get_nodes_in_group(rock_group):
 			each_rock.add_to_group("not_grabbable")
 	rope.set_process_unhandled_input(false)
+	rope.reel_paused = true
 	camera = get_viewport().get_camera_2d()
 	normal_zoom = camera.zoom
 	create_tween().tween_property(camera, "zoom", normal_zoom * zoom_in, zoom_time).set_trans(Tween.TRANS_SINE)
@@ -127,6 +128,7 @@ func _show_line() -> void:
 	text_tween = create_tween()
 	text_tween.tween_property(text_label, "visible_ratio", 1.0, text.length() / letters_per_second)
 	if let_go:
+		rope.reel_paused = false
 		rope.start_retract()
 
 
@@ -160,4 +162,5 @@ func _end() -> void:
 	if "cutscene_target" in camera:
 		camera.cutscene_target = null
 	create_tween().tween_property(camera, "zoom", normal_zoom, zoom_time).set_trans(Tween.TRANS_SINE)
+	rope.reel_paused = false
 	rope.set_process_unhandled_input(true)

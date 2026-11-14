@@ -8,7 +8,7 @@ enum Trigger { HAND_TOUCHES_GROUP, PLAYER_ENTERS_AREA }
 @export var play_only_once := true
 
 @export_group("Dialog")
-@export var lines: Array[String] = ["Player: Hmm... a rock.", "Player: Maybe I can climb it."]
+@export var dialog: Array[DialogLine] = []
 @export var letters_per_second := 40.0
 @export var text_size := 26
 @export var name_size := 22
@@ -51,6 +51,8 @@ func _ready() -> void:
 		for child in find_children("*", "Area2D", true, false):
 			trigger_area = child
 			break
+	if dialog_box == null:
+		_build_dialog_box()
 	if dialog_box:
 		dialog_box.visible = false
 	if text_label:
@@ -62,6 +64,31 @@ func _ready() -> void:
 			rope.hand_touched.connect(_on_hand_touched)
 		Trigger.PLAYER_ENTERS_AREA:
 			trigger_area.body_entered.connect(_on_body_entered)
+
+
+func _build_dialog_box() -> void:
+	var layer := CanvasLayer.new()
+	layer.layer = 5
+	add_child(layer)
+	var box := PanelContainer.new()
+	box.anchor_right = 1.0
+	box.anchor_top = 1.0
+	box.anchor_bottom = 1.0
+	box.offset_left = 20.0
+	box.offset_right = -20.0
+	box.offset_top = -160.0
+	box.offset_bottom = -20.0
+	layer.add_child(box)
+	var column := VBoxContainer.new()
+	box.add_child(column)
+	name_label = Label.new()
+	name_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.4))
+	column.add_child(name_label)
+	text_label = Label.new()
+	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	text_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	column.add_child(text_label)
+	dialog_box = box
 
 
 func _on_hand_touched(body: Node) -> void:
@@ -102,7 +129,7 @@ func _start() -> void:
 
 func _show_line() -> void:
 	var speaker_name := ""
-	var text := lines[line_index]
+	var text := dialog[line_index].text
 	var colon := text.find(":")
 	if colon > 0 and _find_speaker(text.substr(0, colon).strip_edges()) != null:
 		speaker_name = text.substr(0, colon).strip_edges()
@@ -114,7 +141,10 @@ func _show_line() -> void:
 	elif speaker_name != "":
 		text = speaker_name + ": " + text
 	if "cutscene_target" in camera:
-		if focus_on_speaker and speaker != null and speaker != player:
+		var picked := _zoom_target(dialog[line_index].zoom_on)
+		if picked != null:
+			camera.cutscene_target = null if picked == player else picked
+		elif focus_on_speaker and speaker != null and speaker != player:
 			camera.cutscene_target = speaker
 		else:
 			camera.cutscene_target = camera_focus
@@ -125,6 +155,17 @@ func _show_line() -> void:
 		text_tween.kill()
 	text_tween = create_tween()
 	text_tween.tween_property(text_label, "visible_ratio", 1.0, duration)
+
+
+func _zoom_target(path: NodePath) -> Node2D:
+	if path.is_empty():
+		return null
+	var found := get_node_or_null(path)
+	if found == null and owner:
+		found = owner.get_node_or_null(path)
+	if found == null:
+		found = get_parent().find_child(String(path.get_name(path.get_name_count() - 1)), true, false)
+	return found as Node2D
 
 
 func _find_speaker(speaker_name: String) -> Node2D:
@@ -144,7 +185,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if text_tween:
 				text_tween.kill()
 			text_label.visible_ratio = 1.0
-		elif line_index < lines.size() - 1:
+		elif line_index < dialog.size() - 1:
 			line_index += 1
 			_show_line()
 		else:
