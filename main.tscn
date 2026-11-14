@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
+[ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
 [ext_resource type="Texture2D" uid="uid://dwhm036k112i6" path="res://assets/bg/hory.png" id="1_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://baoxg5a6jjkub" path="res://assets/player/oblicej.png" id="2_0xm2m"]
@@ -35,6 +36,16 @@
 [ext_resource type="PackedScene" uid="uid://cv7ler5vj1epb" path="res://assets/fg/scenes/mill-rotate.tscn" id="29_qsp4k"]
 [ext_resource type="Script" uid="uid://xg4y3ldjc3yu" path="res://tools/camera_2d.gd" id="34_4k2k6"]
 
+[sub_resource type="Gradient" id="Gradient_ok6jj"]
+colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gn0rm"]
+gradient = SubResource("Gradient_ok6jj")
+width = 700
+height = 700
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
 bounce = 0.2
@@ -54,6 +65,22 @@ fill_to = Vector2(0.5, 0)
 
 [node name="Background" type="Node2D" parent="." unique_id=1896991764]
 light_mask = 2
+
+[node name="Slunko" type="Parallax2D" parent="Background" unique_id=1966991583]
+modulate = Color(1, 1, 0.83137256, 1)
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="Slunko" type="Sprite2D" parent="Background/Slunko" unique_id=498790342]
+light_mask = 2
+position = Vector2(838, -166)
+texture = ExtResource("1_0rl1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Slunko/Slunko" unique_id=1701078044]
+position = Vector2(25, -205)
+energy = 0.58
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_gn0rm")
+texture_scale = 6.82
 
 [node name="Hills3" type="Parallax2D" parent="Background" unique_id=1577846468]
 modulate = Color(0.52906674, 0.52906674, 0.52906656, 1)
@@ -326,7 +353,15 @@ scale = Vector2(2.487939, 2.487939)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=73994946]
 color = Color(0.31194216, 0.2242862, 0.18741164, 1)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=883406707]
+[node name="DebugCamera" type="Camera2D" parent="." unique_id=883406707]
+unique_name_in_owner = true
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 script = ExtResource("34_4k2k6")
+
+[node name="PointLight2D" type="PointLight2D" parent="DebugCamera" unique_id=1146088074]
+enabled = false
+color = Color(1, 1, 0.95686275, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_44d13")
+texture_scale = 2.4

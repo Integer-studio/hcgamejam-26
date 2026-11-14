@@ -2,15 +2,18 @@ extends Camera2D
 
 @export var speed := 1500.0
 var _prev_camera: Camera2D
+@onready var debug_light: PointLight2D = %DebugCamera/PointLight2D
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_F2:
 		if is_current():
 			_prev_camera.make_current()
+			debug_light.enabled = false
 		else:
 			_prev_camera = get_viewport().get_camera_2d()
 			global_position = _prev_camera.global_position
 			make_current()
+			debug_light.enabled = true
 
 func _process(delta):
 	if not is_current():
