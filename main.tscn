@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
+[ext_resource type="Shader" uid="uid://boi8yyiu8ereu" path="res://assets/Shaders/hillsbg.gdshader" id="1_kq58d"]
+[ext_resource type="Texture2D" uid="uid://dwhm036k112i6" path="res://assets/bg/hory.png" id="1_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://baoxg5a6jjkub" path="res://assets/player/oblicej.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dp74fl11w8rcb" path="res://assets/fg/scenes/rock2.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://de84uoow7by6v" path="res://assets/fg/scenes/rock1.tscn" id="2_h2yge"]
@@ -7,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
+[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cc5y7d7o748mw" path="res://assets/fg/scenes/lizard.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
@@ -26,8 +30,14 @@
 [ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
 [ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
 [ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
-[ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
-[ext_resource type="Texture2D" uid="uid://drl7r0hgexr4v" path="res://assets/player/ruka-closed.png" id="6_hclos"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
+shader = ExtResource("1_kq58d")
+shader_parameter/blur_radius = 1.5
+shader_parameter/fog_color = Color(0.55, 0.65, 0.85, 1)
+shader_parameter/fog_amount = 0.4
+shader_parameter/desaturate = 0.3
+shader_parameter/darken = 0.15
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
@@ -35,7 +45,31 @@ bounce = 0.2
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
-[node name="Rock6" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
+[node name="Background" type="Node2D" parent="." unique_id=1896991764]
+
+[node name="Hills" type="Parallax2D" parent="Background" unique_id=1292614113]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(1580, 0)
+
+[node name="Hory" type="Sprite2D" parent="Background/Hills" unique_id=51068488]
+material = SubResource("ShaderMaterial_qsp4k")
+position = Vector2(928, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qsp4k")
+
+[node name="Rock7" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
+position = Vector2(428, 1595.9999)
+scale = Vector2(6.479998, 4.080001)
+
+[node name="Rock8" parent="." unique_id=167538380 instance=ExtResource("2_h2yge")]
+position = Vector2(1558, 1620.9999)
+scale = Vector2(6.479998, 4.080001)
+
+[node name="Rock9" parent="." unique_id=754794911 instance=ExtResource("2_h2yge")]
+position = Vector2(2524, 1506.9999)
+scale = Vector2(6.479998, 4.080001)
+
+[node name="Rock6" parent="." unique_id=492042573 instance=ExtResource("2_h2yge")]
 position = Vector2(3866.0002, -1773)
 rotation = 0.06408739
 scale = Vector2(4.6412816, 15.181104)
@@ -102,11 +136,6 @@ scale = Vector2(1.2800006, 1.2800006)
 position = Vector2(1578, -1518)
 rotation = -3.0934112
 scale = Vector2(0.31964028, 0.579523)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2019903937]
-position = Vector2(2826, -2541.9998)
-rotation = 2.9568555
-scale = Vector2(0.45396182, 0.6557774)
 
 [node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
 position = Vector2(2661, -1602.0002)
