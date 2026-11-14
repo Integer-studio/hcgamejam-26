@@ -25,8 +25,6 @@
 	// Used when the detector can't find the face in oblicej.png itself (pixels, 802x1382).
 	const FALLBACK_TARGET = [[173, 478], [590, 504], [354, 973]];
 
-	let started = false;
-
 	function loadImage(src) {
 		return new Promise((resolve, reject) => {
 			const img = new Image();
@@ -107,50 +105,77 @@
 		return c.toDataURL("image/png");
 	}
 
-	async function run(defaultPngBase64, onFound) {
-		const vision = await import(VISION_URL);
-		const fileset = await vision.FilesetResolver.forVisionTasks(WASM_URL);
-		const detector = await vision.FaceDetector.createFromOptions(fileset, {
-			baseOptions: { modelAssetPath: MODEL_URL },
-			runningMode: "IMAGE",
-		});
+	// Detector, mask and target layout are loaded once and reused by every run.
+	let setup = null;
+	function prepare(defaultPngBase64) {
+		if (!setup) {
+			setup = (async () => {
+				const vision = await import(VISION_URL);
+				const fileset = await vision.FilesetResolver.forVisionTasks(WASM_URL);
+				const detector = await vision.FaceDetector.createFromOptions(fileset, {
+					baseOptions: { modelAssetPath: MODEL_URL },
+					runningMode: "IMAGE",
+				});
+				const mask = await loadImage("data:image/png;base64," + defaultPngBase64);
+				return { detector, mask, target: targetPoints(detector, mask) };
+			})();
+			setup.catch(() => { setup = null; });  // allow a retry next time
+		}
+		return setup;
+	}
 
-		const mask = await loadImage("data:image/png;base64," + defaultPngBase64);
-		const target = targetPoints(detector, mask);
+	// The current run (one per level start); null when stopped.
+	let current = null;
 
+	function stopRun() {
+		if (!current) return;
+		clearInterval(current.timer);
+		if (current.stream) current.stream.getTracks().forEach((t) => t.stop());
+		current = null;
+	}
+
+	async function run(run_, defaultPngBase64, onFound) {
+		const { detector, mask, target } = await prepare(defaultPngBase64);
+		if (current !== run_) return;
 		const stream = await navigator.mediaDevices.getUserMedia({
 			video: { width: { ideal: 1280 }, height: { ideal: 720 } },
 			audio: false,
 		});
+		if (current !== run_) {  // stopped while waiting for the camera
+			stream.getTracks().forEach((t) => t.stop());
+			return;
+		}
+		run_.stream = stream;
 		const video = document.createElement("video");
 		video.muted = true;
 		video.playsInline = true;
 		video.srcObject = stream;
 		await video.play();
 
-		const stop = (timer) => {
-			clearInterval(timer);
-			stream.getTracks().forEach((t) => t.stop());
-			detector.close();
-		};
-
-		const timer = setInterval(() => {
-			if (video.readyState < 2) return;
+		run_.timer = setInterval(() => {
+			if (current !== run_ || video.readyState < 2) return;
 			const w = video.videoWidth, h = video.videoHeight;
 			const res = detector.detect(video);
 			const src = usableFace(res.detections && res.detections[0], w, h);
 			if (!src) return;
 			const dataUrl = cutFace(video, src, target, mask);
-			stop(timer);
+			stopRun();
 			onFound(dataUrl);
 		}, INTERVAL_MS);
 	}
 
 	window.faceCapture = {
+		// Starts looking for a face (stops a previous run first).
 		start(defaultPngBase64, onFound) {
-			if (started) return;
-			started = true;
-			run(defaultPngBase64, onFound).catch((e) => console.warn("faceCapture:", e));
+			stopRun();
+			const run_ = { stream: null, timer: null };
+			current = run_;
+			run(run_, defaultPngBase64, onFound).catch((e) => {
+				console.warn("faceCapture:", e);
+				if (current === run_) stopRun();
+			});
 		},
+		// Stops looking and turns the camera off.
+		stop: stopRun,
 	};
 })();

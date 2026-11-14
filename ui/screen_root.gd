@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 
 
 func show_menu() -> void:
+	FaceSwap.stop()
 	var menu := menu_scene.instantiate()
 	menu.start_requested.connect(start_game, CONNECT_DEFERRED)
 	_swap(menu)
@@ -32,6 +33,7 @@ func show_menu() -> void:
 func start_game() -> void:
 	_swap(game_scene.instantiate())
 	_in_game = true
+	FaceSwap.start()  # every new game looks for a new face
 
 
 func _swap(node: Node) -> void:

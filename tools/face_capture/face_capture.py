@@ -5,7 +5,7 @@ the default face (oblicej.png) gives the target layout and the alpha mask; every
 seconds one webcam frame is checked; the first usable frontal face is aligned (eyes + mouth)
 onto the default layout, cut with the default mask and written as PNG. Then it exits.
 
-Exit codes: 0 = face written, 1 = game gone, 2 = camera/model problem.
+Exit codes: 0 = face written, 1 = game or launcher gone, 2 = camera/model problem.
 Runs until a face is found, the game (--parent-pid) exits, or it is killed.
 """
 
@@ -112,6 +112,7 @@ def main() -> int:
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 
+    launcher = os.getppid()
     detector = None
     try:
         while True:
@@ -121,6 +122,8 @@ def main() -> int:
             while time.monotonic() < deadline:
                 ok, frame = cap.read()
                 if args.parent_pid and not alive(args.parent_pid):
+                    return 1
+                if os.getppid() != launcher:  # `uv run` was killed (game went back to menu)
                     return 1
             if not ok or frame is None:
                 continue

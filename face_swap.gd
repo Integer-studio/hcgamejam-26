@@ -1,9 +1,10 @@
 extends Node
 ## Swaps the player's face for one taken from the webcam.
-## The game starts with the default face; a helper tries every 3 s until it finds
-## a usable face, then the texture is swapped once.
+## start() is called every time a level starts (screen_root.gd): the player has the
+## default face and a helper tries every 3 s until it finds a usable face, then the
+## texture is swapped once. stop() (back in the menu) turns the camera off.
 ##   web:     web/face_capture.js in the browser (MediaPipe)
-##   desktop: tools/face_capture/face_capture.py (Python + OpenCV, needs `uv sync` there)
+##   desktop: tools/face_capture/face_capture.py (Python + OpenCV via `uv run`)
 ## Every Sprite2D in the group "player_face" gets the new texture.
 
 const DEFAULT_FACE := preload("res://assets/player/oblicej.png")
@@ -16,32 +17,52 @@ const PY_OUT := "user://captured_face.png"
 
 var face_texture: Texture2D
 
+var _js_api: JavaScriptObject
 var _callback: JavaScriptObject  # must stay referenced, or JS calls into nothing
 var _pid := -1
 var _timer: Timer
 
 
 func _ready() -> void:
-	# The face can be found while the menu is shown; give it to the player when the level loads.
-	get_tree().node_added.connect(_on_node_added)
+	_timer = Timer.new()
+	_timer.wait_time = 0.5
+	_timer.timeout.connect(_poll_desktop)
+	add_child(_timer)
+
+
+## Forget the previous face and look for a new one.
+func start() -> void:
+	stop()
+	face_texture = null
 	if OS.has_feature("web"):
 		_start_web()
 	else:
 		_start_desktop()
 
 
+## Stop looking and turn the camera off.
+func stop() -> void:
+	if _js_api:
+		_js_api.stop()
+	_timer.stop()
+	if _pid > 0 and OS.is_process_running(_pid):
+		OS.kill(_pid)
+	_pid = -1
+
+
 # --- web ---------------------------------------------------------------------
 
 func _start_web() -> void:
-	var js := FileAccess.get_file_as_string(JS_PATH)
-	if js.is_empty():
-		push_warning("FaceSwap: %s missing from export (check include filter)" % JS_PATH)
-		return
-	JavaScriptBridge.eval(js, true)
+	if _js_api == null:
+		var js := FileAccess.get_file_as_string(JS_PATH)
+		if js.is_empty():
+			push_warning("FaceSwap: %s missing from export (check include filter)" % JS_PATH)
+			return
+		JavaScriptBridge.eval(js, true)
+		_js_api = JavaScriptBridge.get_interface("faceCapture")
+		_callback = JavaScriptBridge.create_callback(_on_web_face_found)
 	var png := DEFAULT_FACE.get_image().save_png_to_buffer()
-	_callback = JavaScriptBridge.create_callback(_on_web_face_found)
-	var api := JavaScriptBridge.get_interface("faceCapture")
-	api.start(Marshalls.raw_to_base64(png), _callback)
+	_js_api.start(Marshalls.raw_to_base64(png), _callback)
 
 
 func _on_web_face_found(args: Array) -> void:
@@ -76,16 +97,13 @@ func _start_desktop() -> void:
 	])
 	if _pid <= 0:
 		push_warning("FaceSwap: could not start face_capture.py")
+		_pid = -1
 		return
-	_timer = Timer.new()
-	_timer.wait_time = 0.5
-	_timer.timeout.connect(_poll_desktop)
-	add_child(_timer)
 	_timer.start()
 
 
 func _poll_desktop() -> void:
-	if OS.is_process_running(_pid):
+	if _pid > 0 and OS.is_process_running(_pid):
 		return
 	_timer.stop()
 	_pid = -1
@@ -110,8 +128,7 @@ func _find_executable(name: String) -> String:
 
 
 func _exit_tree() -> void:
-	if _pid > 0 and OS.is_process_running(_pid):
-		OS.kill(_pid)
+	stop()
 
 
 # --- shared ------------------------------------------------------------------
@@ -121,11 +138,6 @@ func _apply(image: Image) -> void:
 	for node in get_tree().get_nodes_in_group(GROUP):
 		if node is Sprite2D:
 			_swap(node)
-
-
-func _on_node_added(node: Node) -> void:
-	if face_texture and node is Sprite2D and node.is_in_group(GROUP):
-		(node as Sprite2D).texture = face_texture
 
 
 func _swap(sprite: Sprite2D) -> void:
