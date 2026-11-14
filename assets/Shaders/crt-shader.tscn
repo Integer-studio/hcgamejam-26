@@ -12,7 +12,7 @@ resource_local_to_scene = true
 shader = ExtResource("1_x555o")
 shader_parameter/tex = SubResource("ViewportTexture_0nh6n")
 shader_parameter/mask_type = 5
-shader_parameter/curve = 0.10800000512999999
+shader_parameter/curve = 0.10800000513
 shader_parameter/color_offset = 0.5
 shader_parameter/mask_brightness = 1.0
 shader_parameter/aspect = 0.75600001216
@@ -20,8 +20,16 @@ shader_parameter/aspect = 0.75600001216
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
 resource_local_to_scene = true
 shader = ExtResource("1_0nh6n")
-shader_parameter/pixel_size = 4.0
-shader_parameter/handle_edges = true
+shader_parameter/saturation = 0.75
+shader_parameter/contrast = 1.05
+shader_parameter/shadow_color = Color(0.16, 0.1, 0.24, 1)
+shader_parameter/highlight_color = Color(1, 0.93, 0.8, 1)
+shader_parameter/use_gradient_map = false
+shader_parameter/palette_strength = 0.3
+shader_parameter/posterize_steps = 0.0
+shader_parameter/grain_amount = 0.06
+shader_parameter/grain_size = 1.0
+shader_parameter/grain_fps = 12.0
 
 [node name="CrtShader" type="Control" unique_id=1101274337]
 layout_mode = 3
