@@ -114,7 +114,7 @@ text = "you better bounce choom before i do something to you..."
 zoom_on = NodePath("../Foreground/Dezo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sal4b"]
-size = Vector2(901, 558)
+size = Vector2(684.5, 558)
 
 [sub_resource type="Resource" id="Resource_abqjc"]
 script = ExtResource("42_dline")
@@ -406,13 +406,13 @@ rotation = 0.39547664
 scale = Vector2(-0.32247883, -0.32247883)
 
 [node name="Rock13" parent="Foreground" unique_id=1171427057 instance=ExtResource("2_h2yge")]
-position = Vector2(3823.9995, -10806)
-rotation = -1.0471976
+position = Vector2(3773.0007, -11902)
+rotation = -0.7100775
 scale = Vector2(4.6412816, 15.181104)
 
 [node name="Rock12" parent="Foreground" unique_id=1635247480 instance=ExtResource("2_h2yge")]
-position = Vector2(808.99927, -10354.001)
-rotation = 1.0471976
+position = Vector2(-237.99988, -11734)
+rotation = 0.71475935
 scale = Vector2(2.7142067, 15.736229)
 
 [node name="Kornout" parent="Foreground" unique_id=1430065336 instance=ExtResource("49_0cbny")]
@@ -442,30 +442,30 @@ rotation = 0.43608263
 scale = Vector2(0.41008413, 0.41008413)
 
 [node name="Piano" parent="Foreground" unique_id=1932888241 instance=ExtResource("41_4lmeg")]
-position = Vector2(678, -4736)
+position = Vector2(574, -4805)
 
 [node name="Oko" parent="Foreground" unique_id=1547321877 instance=ExtResource("42_0cp0l")]
 position = Vector2(2734, -249.99997)
 rotation = 3.035928
 
 [node name="Cesar" parent="Foreground" unique_id=1903022562 instance=ExtResource("43_d2t1y")]
-position = Vector2(517, -5010)
+position = Vector2(296, -5086)
 
 [node name="Magnet2" parent="Foreground" unique_id=479238729 instance=ExtResource("11_w48qg")]
-position = Vector2(879, -5269)
+position = Vector2(826, -5440)
 
 [node name="Magnet3" parent="Foreground" unique_id=1927734702 instance=ExtResource("11_w48qg")]
-position = Vector2(540, -5570)
+position = Vector2(381, -5638)
 rotation = 3.1411436
 
 [node name="Magnet4" parent="Foreground" unique_id=784026999 instance=ExtResource("11_w48qg")]
-position = Vector2(908, -5852)
+position = Vector2(881, -5943)
 
 [node name="Magnet5" parent="Foreground" unique_id=1757439108 instance=ExtResource("11_w48qg")]
-position = Vector2(540, -6127)
+position = Vector2(437, -6222)
 
 [node name="Pila2" parent="Foreground" unique_id=1107917889 instance=ExtResource("7_4c57u")]
-position = Vector2(1423.0002, -6952)
+position = Vector2(1426.0004, -7157.0005)
 rotation = -1.3089969
 scale = Vector2(4.0049653, 4.0049653)
 
@@ -475,7 +475,7 @@ rotation = 0.2617994
 scale = Vector2(0.61661875, 0.61661875)
 
 [node name="Rock14" parent="Foreground" unique_id=537483904 instance=ExtResource("2_h2yge")]
-position = Vector2(-1002, -6117)
+position = Vector2(-1326, -6959.9995)
 rotation = -0.12730369
 scale = Vector2(2.7142067, 15.736229)
 
@@ -485,10 +485,10 @@ rotation = 0.06408739
 scale = Vector2(4.6412816, 15.181104)
 
 [node name="Piano2" parent="Foreground" unique_id=1373107552 instance=ExtResource("41_4lmeg")]
-position = Vector2(978, -4667)
+position = Vector2(958, -4616)
 
 [node name="Piano3" parent="Foreground" unique_id=387362539 instance=ExtResource("41_4lmeg")]
-position = Vector2(1295, -4586)
+position = Vector2(239, -7174)
 
 [node name="Mill2" parent="Foreground" unique_id=707506709 instance=ExtResource("29_qsp4k")]
 position = Vector2(1702, -7803)
@@ -599,7 +599,7 @@ dialog = Array[ExtResource("42_dline")]([SubResource("DialogLine_heyyou"), SubRe
 position = Vector2(1664, -3319)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RRRRock/Area2D" unique_id=1309931988]
-position = Vector2(72, 51.25)
+position = Vector2(-36.25, 51.25)
 shape = SubResource("RectangleShape2D_sal4b")
 
 [node name="Dezo" type="Node" parent="." unique_id=277529879 node_paths=PackedStringArray("trigger_area")]
