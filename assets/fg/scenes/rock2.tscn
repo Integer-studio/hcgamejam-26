@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ctuj4jfbtspxg" path="res://assets/fg/imgs/rock2.png" id="1_xneyk"]
 
-[node name="Rock2" type="StaticBody2D" unique_id=1050046009]
+[node name="Rock2" type="StaticBody2D" unique_id=1342946955]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1786162709]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471112522]
 texture = ExtResource("1_xneyk")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=881917894]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1575772489]
 visible = false
 polygon = PackedVector2Array(-166, -139, -179, -94, -179, -91, -238, -85, -238, -70, -234, -23, -234, -7, -200, 45, -199, 45, -189, 104, -189, 110, -155, 135, -155, 136, -149, 136, -144, 136, -81, 120, -79, 120, 48, 138, 57, 138, 111, 121, 113, 121, 209, 140, 212, 140, 234, 100, 235, 100, 168, 0, 168, -1, 88, -47, 88, -48, 48, -57, 44, -57, 31, -86, 31, -87, -39, -118, -39, -119, -166, -140)

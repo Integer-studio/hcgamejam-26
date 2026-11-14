@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cmveaj5i74oo8"]
+
+[ext_resource type="Texture2D" uid="uid://ba1874lxq3rsq" path="res://assets/fg/imgs/kyf.png" id="1_3tuf5"]
+
+[node name="Kyf" type="StaticBody2D" unique_id=35449793]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1831820628]
+texture = ExtResource("1_3tuf5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1122694714]
+visible = false
+polygon = PackedVector2Array(20.5, -267, -46.5, -266, -67.5, -266, -145.5, -224, -146.5, -224, -192.5, -106, -192.5, -104, -167.5, -73, -166.5, -73, -162.5, -63, -161.5, -63, -147.5, 15, -147.5, 21, -117.5, 57, -116.5, 57, -91.5, 121, -90.5, 121, -85.5, 170, -85.5, 174, -190.5, 236, -195.5, 236, -134.5, 260, -134.5, 261, 145.5, 266, 195.5, 266, 194.5, 262, 194.5, 212, 144.5, 193, 141.5, 193, 135.5, 151, 134.5, 151, 134.5, 141, 149.5, 133, 150.5, 133, 170.5, 60, 170.5, 56, 188.5, 13, 189.5, 13, 192.5, -68, 192.5, -188, 91.5, -266, 91.5, -267, 20.5, -268)

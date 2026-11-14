@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cwbpmfggxojot" path="res://assets/fg/imgs/tux.png" id="1_dgpxi"]
 
-[node name="Tux" type="StaticBody2D" unique_id=567768293]
+[node name="Tux" type="StaticBody2D" unique_id=1949069651]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1837193043]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=259306628]
 texture = ExtResource("1_dgpxi")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1919377114]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1756713449]
 visible = false
 polygon = PackedVector2Array(17.5, -420, -68.5, -398, -72.5, -398, -104.5, -331, -105.5, -331, -112.5, -314, -113.5, -314, -107.5, -138, -107.5, -134, -177.5, -37, -178.5, -37, -225.5, 51, -226.5, 51, -248.5, 129, -249.5, 129, -252.5, 169, -252.5, 185, -285.5, 214, -285.5, 215, -342.5, 236, -345.5, 236, -342.5, 295, -342.5, 298, -349.5, 350, -350.5, 350, -350.5, 358, -180.5, 410, -180.5, 411, -117.5, 406, -105.5, 406, -84.5, 383, -84.5, 382, 8.5, 372, 10.5, 372, 92.5, 381, 101.5, 381, 121.5, 413, 121.5, 414, 156.5, 421, 165.5, 421, 215.5, 410, 217.5, 410, 253.5, 361, 253.5, 360, 348.5, 302, 350.5, 302, 318.5, 261, 317.5, 261, 284.5, 185, 283.5, 185, 283.5, 159, 291.5, 92, 291.5, 81, 142.5, -170, 141.5, -170, 127.5, -319, 127.5, -330, 101.5, -385, 101.5, -388, 93.5, -403, 93.5, -404, 17.5, -421)

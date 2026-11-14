@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://d0dnv1qxyklsn" path="res://assets/fg/imgs/rockmale.png" id="1_avcyp"]
 
-[node name="Rockmale" type="StaticBody2D" unique_id=854729779]
+[node name="Rockmale" type="StaticBody2D" unique_id=1165605115]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=741173595]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531620870]
 texture = ExtResource("1_avcyp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=145485898]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1917565923]
 visible = false
 polygon = PackedVector2Array(24, -295.5, -29, -290.5, -31, -290.5, -68, -237.5, -69, -237.5, -75, -177.5, -75, -166.5, -43, -90.5, -43, -87.5, -20, -50.5, -20, -48.5, -68, -33.5, -69, -33.5, -90, 33.5, -91, 33.5, -92, 42.5, -92, 94.5, -107, 132.5, -108, 132.5, -100, 190.5, -100, 196.5, -140, 166.5, -142, 166.5, -126, 155.5, -124, 155.5, -129, 98.5, -129, 97.5, -182, 104.5, -198, 104.5, -215, 135.5, -216, 135.5, -216, 139.5, -179, 196.5, -179, 198.5, -106, 267.5, -105, 267.5, -132, 352.5, -132, 353.5, 243, 353.5, 231, 315.5, 231, 310.5, 252, 286.5, 252, 146.5, 288, 112.5, 289, 112.5, 289, 66.5, 229, -19.5, 228, -19.5, 220, -52.5, 220, -57.5, 113, -99.5, 111, -99.5, 104, -160.5, 104, -205.5, 89, -205.5, 83, -253.5, 83, -261.5, 36, -294.5, 36, -295.5, 24, -296.5)
