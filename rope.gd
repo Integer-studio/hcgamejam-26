@@ -47,6 +47,10 @@ signal hand_grabbed(body: Node)
 @export var hand_rotation_offset := 90.0
 @export_range(0.0, 1.2) var wrist_position := 0.75
 
+@export_group("Debug")
+## F3 toggles free movement of the player (WASD / arrows, Shift = faster).
+@export var noclip_speed := 1500.0
+
 const ROPE_POINT_COUNT := 24
 const DRAW_SAMPLE_COUNT := 48
 
@@ -76,6 +80,7 @@ var wave_strength := 0.0
 var time_since_on_ground := 0.0
 var air_shots_left := 0
 var previous_player_position := Vector2.ZERO
+var noclip := false
 
 var corner_cache := {}
 var probe_circle := CircleShape2D.new()
@@ -96,6 +101,12 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F3:
+		set_noclip(not noclip)
+		get_viewport().set_input_as_handled()
+		return
+	if noclip:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			if is_retracting:
@@ -176,7 +187,29 @@ func shoot(target: Vector2) -> void:
 	previous_player_position = player_position
 
 
+## Debug: the player flies freely through everything, the rope is put away.
+func set_noclip(on: bool) -> void:
+	noclip = on
+	if on:
+		player.set_meta("noclip_used", true)  # height_meter.gd won't save this run
+		start_retract()
+		shot_waiting = false
+	player.freeze = on
+	player.linear_velocity = Vector2.ZERO
+	player.angular_velocity = 0.0
+
+
+func _update_noclip(delta: float) -> void:
+	var dir := Vector2(
+		float(Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT)) - float(Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT)),
+		float(Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN)) - float(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP)))
+	var speed := noclip_speed * (4.0 if Input.is_key_pressed(KEY_SHIFT) else 1.0)
+	player.global_position += dir.normalized() * speed * delta
+
+
 func _physics_process(delta: float) -> void:
+	if noclip:
+		_update_noclip(delta)
 	_update_ground_check(delta)
 	if is_shooting:
 		_update_arm(delta)

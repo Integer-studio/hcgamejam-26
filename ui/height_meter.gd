@@ -171,6 +171,8 @@ func _save_run() -> void:
 	_saved = true
 	if _best_height < 1.0:
 		return  # never left the start
+	if player.get_meta("noclip_used", false):
+		return  # flew there with the F3 debug noclip
 	var time := Time.get_unix_time_from_system()
 	var entry := {"height": _best_height, "time": time, "face": ""}
 	var face: Texture2D = FaceSwap.face_texture
