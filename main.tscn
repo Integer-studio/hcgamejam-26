@@ -1,15 +1,46 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
+[ext_resource type="PackedScene" uid="uid://dp74fl11w8rcb" path="res://assets/fg/scenes/rock2.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://de84uoow7by6v" path="res://assets/fg/scenes/rock1.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
 [node name="Rock2" parent="." unique_id=1000638153 instance=ExtResource("2_h2yge")]
+position = Vector2(-518.00006, -2013)
+rotation = -0.12730369
+scale = Vector2(2.7142067, 15.736229)
+
+[node name="Rock4" parent="." unique_id=215727371 instance=ExtResource("2_h2yge")]
 position = Vector2(128, 427)
 rotation = -0.40830535
-scale = Vector2(1.5446235, 2.901893)
+scale = Vector2(1.5446235, 2.9018927)
 
 [node name="Rock1" parent="." unique_id=203029634 instance=ExtResource("2_h2yge")]
 position = Vector2(603, 745)
 rotation = 0.15762077
 scale = Vector2(1.9797872, 1.0473214)
+
+[node name="Rock3" parent="." unique_id=1050046009 instance=ExtResource("2_7mycd")]
+position = Vector2(1290, 736)
+scale = Vector2(2.7898853, 0.9675196)
+
+[node name="Chaozz" parent="." unique_id=908453492 instance=ExtResource("3_272bh")]
+position = Vector2(2965, 179)
+scale = Vector2(1.9114898, 2.1422527)
+
+[node name="Lilek" parent="." unique_id=1680965395 instance=ExtResource("4_5vw27")]
+position = Vector2(2513.9998, 302.00003)
+scale = Vector2(3.3669639, 2.5282369)
+
+[node name="Snek" parent="." unique_id=1799481394 instance=ExtResource("5_kek77")]
+position = Vector2(1946.0001, 559)
+scale = Vector2(2.88276, 2.693671)
+
+[node name="Cedule" parent="." unique_id=1734713800 instance=ExtResource("6_4c57u")]
+position = Vector2(2904.9998, -290.9999)
+rotation = 0.4750663
+scale = Vector2(0.5836096, 0.57452)
