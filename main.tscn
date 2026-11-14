@@ -1,5 +1,14 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
+[ext_resource type="Texture2D" uid="uid://brrpmi71i62xc" path="res://assets/bg/spago.png" id="1_0cbny"]
+[ext_resource type="Texture2D" uid="uid://ckxwbtft0snoj" path="res://assets/bg/planeta3.png" id="3_uit24"]
+[ext_resource type="Texture2D" uid="uid://bptg8bb7fiw0d" path="res://assets/bg/face1.png" id="8_e71vb"]
+[ext_resource type="Script" uid="uid://cam0mfun4uvb4" path="res://assets/fg/scenes/rotate_texture_random.gd" id="9_e71vb"]
+[ext_resource type="Texture2D" uid="uid://lmcekv8xiej1" path="res://assets/bg/face2.png" id="10_vke2r"]
+[ext_resource type="Texture2D" uid="uid://dtogvijfm23ou" path="res://assets/bg/face3.png" id="11_uit24"]
+[ext_resource type="Texture2D" uid="uid://cvymv565xxmjw" path="res://assets/bg/face4.png" id="12_ruth0"]
+[ext_resource type="Texture2D" uid="uid://cp4b3gq6btnat" path="res://assets/bg/planeta1.png" id="13_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://cac7pe28drpm4" path="res://assets/bg/planeta2.png" id="14_vke2r"]
 [ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
 [ext_resource type="Texture2D" uid="uid://dwhm036k112i6" path="res://assets/bg/hory.png" id="1_qsp4k"]
@@ -55,8 +64,8 @@
 [ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
-offsets = PackedFloat32Array(0, 0.23127036)
-colors = PackedColorArray(1, 0.40784314, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.70358306, 1)
+colors = PackedColorArray(1, 0.40784314, 0, 1, 0.032573283, 0.013284802, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gn0rm"]
 gradient = SubResource("Gradient_ok6jj")
@@ -131,6 +140,78 @@ zoom_on = NodePath("../Foreground/Dezo")
 [node name="Background" type="Node2D" parent="." unique_id=1896991764]
 light_mask = 2
 
+[node name="Planeta1" type="Parallax2D" parent="Background" unique_id=2120042962]
+light_mask = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(556, 64)
+
+[node name="Planeta1" type="Sprite2D" parent="Background/Planeta1" unique_id=381867057]
+modulate = Color(0.7919991, 0.79199916, 0.7919991, 1)
+light_mask = 2
+position = Vector2(90.999954, -1222)
+scale = Vector2(0.6405184, 0.64051837)
+texture = ExtResource("13_rnkwl")
+
+[node name="Planeta2" type="Parallax2D" parent="Background" unique_id=1304080563]
+light_mask = 2
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(556, 64)
+
+[node name="Planeta2" type="Sprite2D" parent="Background/Planeta2" unique_id=1852587285]
+light_mask = 2
+position = Vector2(889.00006, -610)
+scale = Vector2(1.4185185, 1.4185187)
+texture = ExtResource("14_vke2r")
+
+[node name="Planeta3" type="Parallax2D" parent="Background" unique_id=1468024799]
+light_mask = 2
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(556, 64)
+
+[node name="Planeta3" type="Sprite2D" parent="Background/Planeta3" unique_id=702986863]
+light_mask = 2
+position = Vector2(674, -1717)
+texture = ExtResource("3_uit24")
+
+[node name="back" type="Parallax2D" parent="Background" unique_id=861368278]
+modulate = Color(0.45064795, 0.45064837, 0.45064825, 1)
+light_mask = 2
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(556, 64)
+
+[node name="Spago" type="Sprite2D" parent="Background/back" unique_id=1163355262]
+light_mask = 2
+position = Vector2(868, -2462)
+texture = ExtResource("1_0cbny")
+
+[node name="Face1" type="Sprite2D" parent="Background/back" unique_id=1520110204]
+light_mask = 2
+position = Vector2(-135, -1929)
+scale = Vector2(0.5845272, 0.4019784)
+texture = ExtResource("8_e71vb")
+script = ExtResource("9_e71vb")
+
+[node name="Face2" type="Sprite2D" parent="Background/back" unique_id=442556560]
+light_mask = 2
+position = Vector2(133, -2823)
+scale = Vector2(0.65963304, 0.64828897)
+texture = ExtResource("10_vke2r")
+script = ExtResource("9_e71vb")
+
+[node name="Face3" type="Sprite2D" parent="Background/back" unique_id=40386192]
+light_mask = 2
+position = Vector2(922, -1128)
+scale = Vector2(0.6525, 0.41)
+texture = ExtResource("11_uit24")
+offset = Vector2(80, 64.895)
+script = ExtResource("9_e71vb")
+
+[node name="Face4" type="Sprite2D" parent="Background/back" unique_id=1041618157]
+light_mask = 2
+position = Vector2(1089, -3360)
+texture = ExtResource("12_ruth0")
+script = ExtResource("9_e71vb")
+
 [node name="Slunko" type="Parallax2D" parent="Background" unique_id=1966991583]
 modulate = Color(1, 1, 0.83137256, 1)
 scroll_scale = Vector2(0.1, 0.5)
@@ -146,7 +227,7 @@ position = Vector2(4, -44)
 energy = 0.41
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_gn0rm")
-texture_scale = 6.29
+texture_scale = 1.53
 
 [node name="Hills3" type="Parallax2D" parent="Background" unique_id=1577846468]
 modulate = Color(0.31925523, 0.3192553, 0.31925514, 1)

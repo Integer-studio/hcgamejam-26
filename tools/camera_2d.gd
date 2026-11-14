@@ -19,5 +19,10 @@ func _process(delta):
 	if not is_current():
 		return
 	var dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	# WASD by physical key position (works the same on QWERTZ/AZERTY layouts)
+	var wasd := Vector2(
+		float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)),
+		float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W)))
+	dir = (dir + wasd).limit_length(1.0)
 	var mult := 5.0 if Input.is_key_pressed(KEY_SHIFT) else 1.0
 	global_position += dir * speed * mult * delta
