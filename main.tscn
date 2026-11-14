@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
-[ext_resource type="Texture2D" uid="uid://baoxg5a6jjkub" path="res://assets/player/oblicej.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dp74fl11w8rcb" path="res://assets/fg/scenes/rock2.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://de84uoow7by6v" path="res://assets/fg/scenes/rock1.tscn" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://c1cxsvm1dghc5" path="res://rope.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cduefbjv0qnxn" path="res://assets/fg/scenes/chaozz.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dro65cy4gyoro" path="res://assets/fg/scenes/pila.tscn" id="7_4c57u"]
@@ -14,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dluun7fpyvjsf" path="res://assets/fg/scenes/diamond.tscn" id="9_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bnlwhe5vulcin" path="res://assets/fg/scenes/koste.tscn" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://tvh47s1la3s8" path="res://assets/fg/scenes/magnet.tscn" id="11_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cl627e1mygysk" path="res://assets/fg/scenes/rockmale.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://8ai4g8x1x7md" path="res://assets/fg/scenes/ryba2.tscn" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://qto2avoqptax" path="res://assets/fg/scenes/rytir.tscn" id="13_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bfxrnr2urk2v0" path="res://assets/fg/scenes/tux.tscn" id="14_82xsv"]
@@ -24,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://oh6fekb662yh" path="res://assets/fg/scenes/zvykacka.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://dm0vqfjmrdmlv" path="res://assets/fg/scenes/toilet.tscn" id="20_getpj"]
 [ext_resource type="PackedScene" uid="uid://k43vf3fc6f5" path="res://assets/fg/scenes/mlyn.tscn" id="21_getpj"]
+[ext_resource type="PackedScene" uid="uid://daf6ppcnpkr5w" path="res://assets/fg/scenes/mesic.tscn" id="23_0odxb"]
+[ext_resource type="PackedScene" uid="uid://bi8b7x6sxxh6g" path="res://assets/fg/scenes/sun.tscn" id="24_lswn8"]
+[ext_resource type="Texture2D" uid="uid://baoxg5a6jjkub" path="res://assets/player/oblicej.png" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c1cxsvm1dghc5" path="res://rope.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sal4b"]
 friction = 0.4
@@ -88,6 +91,11 @@ scale = Vector2(1.781814, 2.1914814)
 position = Vector2(276, -116)
 scale = Vector2(1.2800006, 1.2800006)
 
+[node name="Rockmale" parent="." unique_id=1165605115 instance=ExtResource("12_1u8w0")]
+position = Vector2(922, -313)
+rotation = -3.0934112
+scale = Vector2(0.31964028, 0.579523)
+
 [node name="Ryba2" parent="." unique_id=2135649931 instance=ExtResource("12_vivmo")]
 position = Vector2(951, -645)
 scale = Vector2(0.23011148, -0.47446373)
@@ -138,6 +146,22 @@ scale = Vector2(0.13279392, 0.13279392)
 position = Vector2(1020, -913)
 rotation = -0.031595875
 scale = Vector2(1.5796716, 1.5796716)
+
+[node name="Mesic" parent="." unique_id=2054270032 instance=ExtResource("23_0odxb")]
+position = Vector2(889, 133)
+scale = Vector2(0.17965043, 0.17965043)
+
+[node name="Sun" parent="." unique_id=225511849 instance=ExtResource("24_lswn8")]
+position = Vector2(905, -549)
+
+[node name="Rock5" parent="." unique_id=2090582565 instance=ExtResource("2_h2yge")]
+position = Vector2(2190, -902)
+rotation = 1.9371682
+scale = Vector2(0.63988423, 0.63988423)
+
+[node name="Rytir2" parent="." unique_id=1038533074 instance=ExtResource("13_2cqfq")]
+position = Vector2(2064, -992)
+scale = Vector2(0.4021762, 0.4021762)
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
 position = Vector2(780, 328)
