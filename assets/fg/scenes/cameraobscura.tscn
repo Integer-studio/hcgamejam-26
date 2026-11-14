@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ba56g8xyax32i" path="res://assets/fg/imgs/cameraobscura.png" id="1_8gi0g"]
 
-[node name="Cameraobscura" type="StaticBody2D" unique_id=203603722]
+[node name="Cameraobscura" type="StaticBody2D" unique_id=360804295]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=542046053]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=612130029]
 texture = ExtResource("1_8gi0g")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2125935896]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=422513967]
 visible = false
 polygon = PackedVector2Array(-72, -59.5, -107, -18.5, -108, -18.5, -117, 40.5, -118, 40.5, -116, 54.5, -116, 55.5, -34, 52.5, -9, 52.5, 8, 42.5, 10, 42.5, 39, 19.5, 39, 18.5, 101, 44.5, 105, 44.5, 109, 37.5, 110, 37.5, 106, 28.5, 106, 26.5, 111, 18.5, 112, 18.5, 111, 15.5, 111, 9.5, 104, 2.5, 103, 2.5, 108, -12.5, 108, -13.5, 97, -21.5, 97, -22.5, 44, 5.5, 43, 5.5, 40, -18.5, 40, -26.5, 18, -31.5, 18, -32.5, -9, -26.5, -17, -26.5, -43, -38.5, -46, -38.5, -63, -55.5, -63, -56.5, -72, -61.5)

@@ -84,6 +84,9 @@ func _ready() -> void:
 	air_shots_left = shots_allowed_in_air
 	previous_player_position = player.global_position
 	shape_query.shape = probe_circle
+	for child in player.get_children():
+		if child is Camera2D:
+			child.make_current()
 
 
 func _unhandled_input(event: InputEvent) -> void:

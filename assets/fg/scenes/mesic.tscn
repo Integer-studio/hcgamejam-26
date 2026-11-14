@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dvybcafmenyur" path="res://assets/fg/imgs/mesic.png" id="1_8o62u"]
 
-[node name="Mesic" type="StaticBody2D" unique_id=2054270032]
+[node name="Mesic" type="StaticBody2D" unique_id=1575784234]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1737218772]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310446748]
 texture = ExtResource("1_8o62u")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=597955190]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1214038002]
 visible = false
 polygon = PackedVector2Array(-46.5, -460, -184.5, -424, -188.5, -424, -247.5, -370, -249.5, -370, -264.5, -351, -264.5, -350, -340.5, -297, -342.5, -297, -415.5, -209, -416.5, -209, -459.5, 36, -459.5, 53, -416.5, 212, -416.5, 215, -414.5, 216, -413.5, 216, -347.5, 325, -347.5, 327, -338.5, 336, -338.5, 338, -235.5, 427, -235.5, 428, -78.5, 474, -78.5, 475, 169.5, 465, 176.5, 465, 340.5, 339, 341.5, 339, 421.5, 214, 422.5, 214, 463.5, 110, 464.5, 110, 459.5, -63, 459.5, -74, 404.5, -188, 403.5, -188, 398.5, -204, 398.5, -206, 329.5, -313, 329.5, -315, 228.5, -393, 228.5, -394, 211.5, -404, 211.5, -405, 86.5, -452, 86.5, -453, -46.5, -461)

@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bj4q1gk663t36" path="res://assets/fg/imgs/varhany.png" id="1_fc7vw"]
 
-[node name="Varhany" type="StaticBody2D" unique_id=327617802]
+[node name="Varhany" type="StaticBody2D" unique_id=1834365891]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1233943739]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689386245]
 texture = ExtResource("1_fc7vw")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1759529762]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1324305571]
 visible = false
 polygon = PackedVector2Array(-23.5, -145.5, -35.5, -105.5, -35.5, -104.5, -56.5, -89.5, -57.5, -89.5, -62.5, -120.5, -63.5, -120.5, -74.5, -101.5, -75.5, -101.5, -76.5, -89.5, -76.5, -85.5, -84.5, -87.5, -88.5, -87.5, -76.5, -27.5, -75.5, -27.5, -82.5, 6.5, -83.5, 6.5, -80.5, 39.5, -80.5, 44.5, -86.5, 72.5, -86.5, 78.5, -124.5, 114.5, -125.5, 114.5, -125.5, 123.5, -109.5, 135.5, -108.5, 135.5, -122.5, 144.5, -122.5, 145.5, 60.5, 142.5, 102.5, 142.5, 141.5, 111.5, 142.5, 111.5, 129.5, 80.5, 129.5, 77.5, 97.5, 78.5, 91.5, 78.5, 101.5, 13.5, 102.5, 13.5, 101.5, -29.5, 101.5, -83.5, 84.5, -97.5, 83.5, -97.5, 78.5, -116.5, 78.5, -120.5, 65.5, -103.5, 65.5, -102.5, 46.5, -99.5, 44.5, -99.5, 33.5, -139.5, 33.5, -143.5, 3.5, -118.5, 1.5, -118.5, -23.5, -147.5)

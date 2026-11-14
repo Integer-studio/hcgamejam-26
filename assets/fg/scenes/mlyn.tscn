@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bh2y5uiqtxb5n" path="res://assets/fg/imgs/mlyn.png" id="1_u7chp"]
 
-[node name="Mlyn" type="StaticBody2D" unique_id=363837391]
+[node name="Mlyn" type="StaticBody2D" unique_id=1323325993]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459285106]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=298355595]
 texture = ExtResource("1_u7chp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=189794350]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=701598915]
 visible = false
 polygon = PackedVector2Array(-59, -120.5, -73, -113.5, -73, -111.5, -13, -44.5, -12, -44.5, -28, -30.5, -29, -30.5, -22, -23.5, -22, -22.5, -89, 33.5, -90, 33.5, -76, 51.5, -73, 51.5, -15, -11.5, -14, -11.5, -23, 9.5, -24, 9.5, -44, 113.5, -44, 115.5, 41, 118.5, 54, 118.5, 39, 31.5, 39, 28.5, 68, 50.5, 68, 51.5, 83, 47.5, 83, 45.5, 36, -3.5, 35, -3.5, 37, -22.5, 37, -29.5, 31, -34.5, 31, -36.5, 91, -91.5, 92, -91.5, 81, -108.5, 79, -108.5, 16, -44.5, 15, -44.5, -59, -121.5)
