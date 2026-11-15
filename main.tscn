@@ -113,6 +113,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_hint"]
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Resource" id="DialogLine_heyyou"]
 script = ExtResource("42_dline")
 text = "whatch ya doing in my hood?"
@@ -135,11 +140,6 @@ zoom_on = NodePath("../Player")
 script = ExtResource("42_dline")
 text = "anyway.... what happend to your face?"
 zoom_on = NodePath("../Foreground/Dezo")
-
-[sub_resource type="LabelSettings" id="LabelSettings_hint"]
-font_size = 28
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=2063578211]
 
@@ -169,6 +169,12 @@ position = Vector2(889.00006, -610)
 scale = Vector2(1.4185185, 1.4185187)
 texture = ExtResource("14_vke2r")
 
+[node name="Planeta3" type="Sprite2D" parent="Background/Planeta2" unique_id=1614895701]
+light_mask = 2
+position = Vector2(-317, -5150)
+scale = Vector2(1.4185185, 1.4185187)
+texture = ExtResource("14_vke2r")
+
 [node name="Planeta3" type="Parallax2D" parent="Background" unique_id=1468024799]
 light_mask = 2
 scroll_scale = Vector2(0.4, 0.4)
@@ -177,6 +183,11 @@ scroll_offset = Vector2(556, 64)
 [node name="Planeta3" type="Sprite2D" parent="Background/Planeta3" unique_id=702986863]
 light_mask = 2
 position = Vector2(674, -1717)
+texture = ExtResource("3_uit24")
+
+[node name="Planeta4" type="Sprite2D" parent="Background/Planeta3" unique_id=899774023]
+light_mask = 2
+position = Vector2(226, -3878)
 texture = ExtResource("3_uit24")
 
 [node name="back" type="Parallax2D" parent="Background" unique_id=861368278]
@@ -188,6 +199,11 @@ scroll_offset = Vector2(556, 64)
 [node name="Spago" type="Sprite2D" parent="Background/back" unique_id=1163355262]
 light_mask = 2
 position = Vector2(868, -2462)
+texture = ExtResource("1_0cbny")
+
+[node name="Spago2" type="Sprite2D" parent="Background/back" unique_id=1017463938]
+light_mask = 2
+position = Vector2(2334, -4818)
 texture = ExtResource("1_0cbny")
 
 [node name="Face1" type="Sprite2D" parent="Background/back" unique_id=1520110204]
@@ -204,6 +220,13 @@ scale = Vector2(0.65963304, 0.64828897)
 texture = ExtResource("10_vke2r")
 script = ExtResource("9_e71vb")
 
+[node name="Face6" type="Sprite2D" parent="Background/back" unique_id=571800817]
+light_mask = 2
+position = Vector2(521, -5841.0005)
+scale = Vector2(0.65963304, 0.64828897)
+texture = ExtResource("10_vke2r")
+script = ExtResource("9_e71vb")
+
 [node name="Face3" type="Sprite2D" parent="Background/back" unique_id=40386192]
 light_mask = 2
 position = Vector2(922, -1128)
@@ -213,6 +236,12 @@ offset = Vector2(80, 64.895)
 script = ExtResource("9_e71vb")
 
 [node name="Face4" type="Sprite2D" parent="Background/back" unique_id=1041618157]
+light_mask = 2
+position = Vector2(1089, -3360)
+texture = ExtResource("12_ruth0")
+script = ExtResource("9_e71vb")
+
+[node name="Face5" type="Sprite2D" parent="Background/back" unique_id=1924181971]
 light_mask = 2
 position = Vector2(1089, -3360)
 texture = ExtResource("12_ruth0")
@@ -387,6 +416,7 @@ position = Vector2(2216, 552)
 scale = Vector2(1.4119607, 1.0187924)
 
 [node name="Dezo" type="Sprite2D" parent="Foreground" unique_id=2018074000]
+light_mask = 2
 material = ExtResource("fg_mat_1")
 position = Vector2(1871, 534)
 scale = Vector2(0.39999753, 0.5999976)
@@ -672,7 +702,6 @@ offset_left = 24.0
 offset_top = 20.0
 offset_right = 724.0
 offset_bottom = 60.0
-mouse_filter = 2
 text = "Aim and hold Left mouse button to pull"
 label_settings = SubResource("LabelSettings_hint")
 
@@ -699,7 +728,7 @@ dialog = Array[ExtResource("42_dline")]([SubResource("DialogLine_heyyou"), SubRe
 position = Vector2(1495, 338)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dezo/Area2D" unique_id=1527380275]
-position = Vector2(177.5, 100)
+position = Vector2(128, 105)
 shape = SubResource("RectangleShape2D_sal4b")
 
 [node name="Kompas" parent="." unique_id=451803568 instance=ExtResource("63_sm6fg")]
