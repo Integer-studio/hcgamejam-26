@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
+[ext_resource type="Texture2D" uid="uid://dntf7vpr7a1mg" path="res://assets/bg/planeta4.png" id="4_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://brrpmi71i62xc" path="res://assets/bg/spago.png" id="1_0cbny"]
 [ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
@@ -205,6 +206,16 @@ light_mask = 2
 position = Vector2(226, -3878)
 texture = ExtResource("3_uit24")
 
+[node name="Planeta4" type="Parallax2D" parent="Background" unique_id=1836607404]
+light_mask = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(556, 64)
+
+[node name="Planeta4" type="Sprite2D" parent="Background/Planeta4" unique_id=1113787658]
+light_mask = 2
+position = Vector2(-462, -1470)
+texture = ExtResource("4_sm6fg")
+
 [node name="back" type="Parallax2D" parent="Background" unique_id=861368278]
 modulate = Color(0.45064795, 0.45064837, 0.45064825, 1)
 light_mask = 2
@@ -244,7 +255,7 @@ script = ExtResource("9_e71vb")
 
 [node name="Face3" type="Sprite2D" parent="Background/back" unique_id=40386192]
 light_mask = 2
-position = Vector2(922, -1128)
+position = Vector2(409, -1095)
 scale = Vector2(0.6525, 0.41)
 texture = ExtResource("11_uit24")
 offset = Vector2(80, 64.895)
@@ -654,6 +665,7 @@ position = Vector2(180, -11969)
 rotation = -2.8043733
 
 [node name="Player" type="RigidBody2D" parent="." unique_id=1533584011]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(1125, 310)
 physics_material_override = SubResource("PhysicsMaterial_sal4b")

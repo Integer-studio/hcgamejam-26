@@ -7,13 +7,30 @@ extends Control
 @export var game_scene: PackedScene = preload("res://main.tscn")
 ## The innermost SubViewport, where the menu/game is placed.
 @export var screen_path: NodePath = ^"SubViewportContainer/SubViewport/SubViewportContainer2/SubViewport"
+## Background music, loops across menu and game.
+@export var music: AudioStream = preload("res://assets/soundtrack.ogg")
+@export_range(-40.0, 6.0, 0.5, "suffix:dB") var music_volume_db := -2.0
 
 var _current: Node
 var _in_game := false
 
 
 func _ready() -> void:
+	_start_music()
 	show_menu()
+
+
+func _start_music() -> void:
+	if music == null:
+		return
+	if "loop" in music:
+		music.loop = true
+	var player := AudioStreamPlayer.new()
+	player.name = "Music"
+	player.stream = music
+	player.volume_db = music_volume_db
+	add_child(player)
+	player.play()
 
 
 func _input(event: InputEvent) -> void:
