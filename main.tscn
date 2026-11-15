@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://crwnfk8rpr3f1"]
 
-[ext_resource type="Texture2D" uid="uid://dntf7vpr7a1mg" path="res://assets/bg/planeta4.png" id="4_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://brrpmi71i62xc" path="res://assets/bg/spago.png" id="1_0cbny"]
 [ext_resource type="Texture2D" uid="uid://c67ms24xsc1om" path="res://assets/bg/slunko.png" id="1_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://dr8ewkfmvaq6h" path="res://assets/bg/clouds1.png" id="1_htxhm"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ckxwbtft0snoj" path="res://assets/bg/planeta3.png" id="3_uit24"]
 [ext_resource type="PackedScene" uid="uid://cyf2bbvegh5a1" path="res://assets/fg/scenes/lilek.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cefn8atwifxxw" path="res://assets/player/ruka-tile.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dntf7vpr7a1mg" path="res://assets/bg/planeta4.png" id="4_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://by5nghi8n83r1" path="res://assets/player/ruka-open.png" id="5_hopen"]
 [ext_resource type="PackedScene" uid="uid://70jvn6ol2flq" path="res://assets/fg/scenes/snek.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cbothmhpcj7cv" path="res://assets/fg/scenes/cedule.tscn" id="6_4c57u"]
@@ -63,9 +63,9 @@
 [ext_resource type="PackedScene" uid="uid://blw23fktffbg0" path="res://assets/fg/scenes/kornout.tscn" id="49_0cbny"]
 [ext_resource type="Texture2D" uid="uid://blkx3uadkjeut" path="res://assets/fg/imgs/dezo.png" id="53_abqjc"]
 [ext_resource type="PackedScene" uid="uid://cbxph7iptlsj1" path="res://assets/fg/scenes/kompas.tscn" id="63_sm6fg"]
-[ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 [ext_resource type="PackedScene" path="res://effects/player_sfx.tscn" id="70_sfx"]
-[ext_resource type="PackedScene" path="res://effects/impact_frames.tscn" id="71_impact"]
+[ext_resource type="PackedScene" uid="uid://o4nfnhuctyc8" path="res://effects/impact_frames.tscn" id="71_impact"]
+[ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 offsets = PackedFloat32Array(0, 0.70358306, 1)

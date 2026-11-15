@@ -9,7 +9,7 @@ extends Control
 @export var screen_path: NodePath = ^"SubViewportContainer/SubViewport/SubViewportContainer2/SubViewport"
 ## Background music, loops across menu and game.
 @export var music: AudioStream = preload("res://assets/soundtrack.ogg")
-@export_range(-40.0, 6.0, 0.5, "suffix:dB") var music_volume_db := -2.0
+@export_range(-40.0, 6.0, 0.5, "suffix:dB") var music_volume_db := 1.0
 
 var _current: Node
 var _in_game := false

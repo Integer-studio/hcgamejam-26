@@ -22,7 +22,7 @@ FaceSwap="*res://face_swap.gd"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [physics]
 
