@@ -23,6 +23,8 @@ const DEFAULT_FACE := preload("res://assets/player/oblicej.png")
 @export var gap := 4.0
 ## Only this many most recent runs are shown on the right.
 @export var max_runs_shown := 40
+## Objects in this group don't count when finding the top of the level.
+@export var ignore_group := "rocks"
 
 var _start_y := 0.0
 var _top_y := 0.0
@@ -134,7 +136,7 @@ func _find_top_y() -> float:
 	var stack: Array[Node] = [level]
 	while not stack.is_empty():
 		var node: Node = stack.pop_back()
-		if node == player or node is Parallax2D or node is CanvasLayer:
+		if node == player or node is Parallax2D or node is CanvasLayer or node is Area2D or node.is_in_group(ignore_group):
 			continue
 		if node is CollisionPolygon2D:
 			var xf: Transform2D = node.global_transform
