@@ -14,6 +14,8 @@ const JS_PATH := "res://web/face_capture.js"
 
 const PY_DIR := "res://tools/face_capture"
 const PY_OUT := "user://captured_face.png"
+const PY_USER_DIR := "user://face_capture"
+const PY_FILES := ["pyproject.toml", "uv.lock", "face_capture.py", "face_detection_yunet_2023mar.onnx"]
 
 var face_texture: Texture2D
 
@@ -78,11 +80,13 @@ func _on_web_face_found(args: Array) -> void:
 # --- desktop -----------------------------------------------------------------
 
 func _start_desktop() -> void:
-	var dir := ProjectSettings.globalize_path(PY_DIR)
 	# `uv run` creates the venv and installs OpenCV on first use, so nobody has to set it up.
 	var uv := _find_executable("uv")
 	if uv.is_empty():
 		push_warning("FaceSwap: `uv` not found, webcam face disabled (https://docs.astral.sh/uv/)")
+		return
+	var dir := _tool_dir()
+	if dir.is_empty():
 		return
 	var out := ProjectSettings.globalize_path(PY_OUT)
 	DirAccess.remove_absolute(out)
@@ -90,7 +94,7 @@ func _start_desktop() -> void:
 		"run", "--quiet", "--project", dir,
 		"python", dir.path_join("face_capture.py"),
 		"--out", out,
-		"--mask", ProjectSettings.globalize_path(DEFAULT_FACE.resource_path),
+		"--mask", _mask_path(),
 		"--model", dir.path_join("face_detection_yunet_2023mar.onnx"),
 		"--interval", "3",
 		"--parent-pid", str(OS.get_process_id()),
@@ -100,6 +104,34 @@ func _start_desktop() -> void:
 		_pid = -1
 		return
 	_timer.start()
+
+
+## Folder with face_capture.py, its pyproject and the model, as a real path for Python.
+## In the editor it's the project folder. In an exported game those files are inside the
+## .pck, so they are copied out to user://face_capture first.
+func _tool_dir() -> String:
+	var dir := PY_DIR if OS.has_feature("editor") else PY_USER_DIR
+	if dir == PY_USER_DIR:
+		DirAccess.make_dir_recursive_absolute(dir)
+		for file_name in PY_FILES:
+			var data := FileAccess.get_file_as_bytes(PY_DIR.path_join(file_name))
+			if data.is_empty():
+				push_warning("FaceSwap: %s missing from export (check include filter)" % file_name)
+				return ""
+			var target := dir.path_join(file_name)
+			if FileAccess.get_file_as_bytes(target) != data:
+				var file := FileAccess.open(target, FileAccess.WRITE)
+				file.store_buffer(data)
+	return ProjectSettings.globalize_path(dir)
+
+
+## The default face is the mask (outline + eye/mouth position) for the cut-out. Saved as
+## a real PNG, because exported games only have the imported texture.
+func _mask_path() -> String:
+	DirAccess.make_dir_recursive_absolute(PY_USER_DIR)
+	var mask := PY_USER_DIR.path_join("mask.png")
+	DEFAULT_FACE.get_image().save_png(mask)
+	return ProjectSettings.globalize_path(mask)
 
 
 func _poll_desktop() -> void:
