@@ -1,6 +1,7 @@
 extends Node
 
 @export var win_image: Texture2D
+@export var win_sound: AudioStream = preload("res://assets/sfx/win.ogg")
 @export var target_name := "Kyf"
 @export var target: Node2D
 @export var play_again_text := "PLAY AGAIN"
@@ -127,6 +128,11 @@ func _on_hand_touched(body: Node) -> void:
 
 func _win() -> void:
 	has_won = true
+	if win_sound:
+		var audio := AudioStreamPlayer.new()
+		audio.stream = win_sound
+		add_child(audio)
+		audio.play()
 	player.set_deferred("freeze", true)
 	rope.set_process_unhandled_input(false)
 	_build_screen()

@@ -2,6 +2,8 @@ extends Node2D
 
 signal hand_touched(body: Node)
 signal hand_grabbed(body: Node)
+signal shot
+signal released  ## the hand let go of what it was holding
 
 @export var player: RigidBody2D
 @export var hand_sprite: Node2D
@@ -96,6 +98,10 @@ func _ready() -> void:
 	air_shots_left = shots_allowed_in_air
 	previous_player_position = player.global_position
 	shape_query.shape = probe_circle
+	var sfx := preload("res://player_sfx.gd").new()
+	sfx.rope = self
+	sfx.player = player
+	add_child(sfx)
 	for child in player.get_children():
 		if child is Camera2D:
 			child.make_current()
@@ -140,6 +146,8 @@ func can_shoot() -> bool:
 func start_retract() -> void:
 	if not is_shooting:
 		return
+	if is_holding:
+		released.emit()
 	is_shooting = false
 	is_holding = false
 	is_retracting = true
@@ -186,6 +194,7 @@ func shoot(target: Vector2) -> void:
 	time_since_shot = 0.0
 	wave_strength = wave_size
 	previous_player_position = player_position
+	shot.emit()
 
 
 ## Debug: the player flies freely through everything, the rope is put away.
@@ -402,6 +411,7 @@ func _slide_hand(delta: float) -> void:
 
 
 func _let_go_of_wall(slide_direction: Vector2) -> void:
+	released.emit()
 	is_holding = false
 	rope_is_loose = true
 	is_sliding = false
