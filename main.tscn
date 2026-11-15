@@ -136,6 +136,11 @@ script = ExtResource("42_dline")
 text = "anyway.... what happend to your face?"
 zoom_on = NodePath("../Foreground/Dezo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_hint"]
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=2063578211]
 
 [node name="Background" type="Node2D" parent="." unique_id=1896991764]
@@ -660,6 +665,16 @@ rotation = -1.5704194
 scale = Vector2(1.0572143, 0.20908096)
 mouse_filter = 2
 texture = ExtResource("38_b1qrp")
+
+[node name="Hint" type="Label" parent="CanvasLayer/Control" unique_id=1734981265]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 724.0
+offset_bottom = 60.0
+mouse_filter = 2
+text = "Aim and hold Left mouse button to pull"
+label_settings = SubResource("LabelSettings_hint")
 
 [node name="RRRRock" type="Node" parent="." unique_id=1849864201 node_paths=PackedStringArray("trigger_area")]
 script = ExtResource("34_ok6jj")
