@@ -1,0 +1,86 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player_sfx.gd" id="1_sfx"]
+[ext_resource type="AudioStream" path="res://assets/sfx/shoot1.ogg" id="2_shoot1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/shoot2.ogg" id="3_shoot2"]
+[ext_resource type="AudioStream" path="res://assets/sfx/shoot3.ogg" id="4_shoot3"]
+[ext_resource type="AudioStream" path="res://assets/sfx/grab1.ogg" id="5_grab1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/grab3.ogg" id="6_grab3"]
+[ext_resource type="AudioStream" path="res://assets/sfx/ungrab1.ogg" id="7_ungrab1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/ungrab2.ogg" id="8_ungrab2"]
+[ext_resource type="AudioStream" path="res://assets/sfx/ungrab3.ogg" id="9_ungrab3"]
+[ext_resource type="AudioStream" path="res://assets/sfx/huh1.ogg" id="10_huh1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/huh2.ogg" id="11_huh2"]
+[ext_resource type="AudioStream" path="res://assets/sfx/heh3.ogg" id="12_heh3"]
+[ext_resource type="AudioStream" path="res://assets/sfx/collision1.ogg" id="13_collision1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/collision2.ogg" id="14_collision2"]
+[ext_resource type="AudioStream" path="res://assets/sfx/rev1.ogg" id="15_rev1"]
+[ext_resource type="AudioStream" path="res://assets/sfx/rev2.ogg" id="16_rev2"]
+[ext_resource type="AudioStream" path="res://assets/sfx/rev3.ogg" id="17_rev3"]
+
+[sub_resource type="AudioStreamRandomizer" id="Random_shoot"]
+random_pitch = 1.07
+streams_count = 3
+stream_0/stream = ExtResource("2_shoot1")
+stream_1/stream = ExtResource("3_shoot2")
+stream_2/stream = ExtResource("4_shoot3")
+
+[sub_resource type="AudioStreamRandomizer" id="Random_grab"]
+random_pitch = 1.07
+streams_count = 2
+stream_0/stream = ExtResource("5_grab1")
+stream_1/stream = ExtResource("6_grab3")
+
+[sub_resource type="AudioStreamRandomizer" id="Random_ungrab"]
+random_pitch = 1.07
+streams_count = 3
+stream_0/stream = ExtResource("7_ungrab1")
+stream_1/stream = ExtResource("8_ungrab2")
+stream_2/stream = ExtResource("9_ungrab3")
+
+[sub_resource type="AudioStreamRandomizer" id="Random_huh"]
+random_pitch = 1.07
+streams_count = 3
+stream_0/stream = ExtResource("10_huh1")
+stream_1/stream = ExtResource("11_huh2")
+stream_2/stream = ExtResource("12_heh3")
+
+[sub_resource type="AudioStreamRandomizer" id="Random_collision"]
+random_pitch = 1.07
+streams_count = 2
+stream_0/stream = ExtResource("13_collision1")
+stream_1/stream = ExtResource("14_collision2")
+
+[sub_resource type="AudioStreamRandomizer" id="Random_rev"]
+random_pitch = 1.07
+streams_count = 3
+stream_0/stream = ExtResource("15_rev1")
+stream_1/stream = ExtResource("16_rev2")
+stream_2/stream = ExtResource("17_rev3")
+
+[node name="PlayerSfx" type="Node"]
+script = ExtResource("1_sfx")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_shoot")
+max_polyphony = 3
+
+[node name="Grab" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_grab")
+max_polyphony = 3
+
+[node name="Ungrab" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_ungrab")
+max_polyphony = 3
+
+[node name="Huh" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_huh")
+max_polyphony = 3
+
+[node name="Collision" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_collision")
+max_polyphony = 3
+
+[node name="Rev" type="AudioStreamPlayer" parent="."]
+stream = SubResource("Random_rev")
+max_polyphony = 3

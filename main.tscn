@@ -63,6 +63,8 @@
 [ext_resource type="Texture2D" uid="uid://blkx3uadkjeut" path="res://assets/fg/imgs/dezo.png" id="53_abqjc"]
 [ext_resource type="PackedScene" uid="uid://cbxph7iptlsj1" path="res://assets/fg/scenes/kompas.tscn" id="63_sm6fg"]
 [ext_resource type="Material" uid="uid://eqgxatcqhdnu" path="res://assets/Shaders/fg_items.tres" id="fg_mat_1"]
+[ext_resource type="PackedScene" path="res://effects/player_sfx.tscn" id="70_sfx"]
+[ext_resource type="PackedScene" path="res://effects/impact_frames.tscn" id="71_impact"]
 
 [sub_resource type="Gradient" id="Gradient_ok6jj"]
 offsets = PackedFloat32Array(0, 0.70358306, 1)
@@ -780,6 +782,14 @@ shape = SubResource("RectangleShape2D_sal4b")
 
 [node name="WinScreen" type="Node" parent="." unique_id=91693097]
 script = ExtResource("44_win")
+
+[node name="PlayerSfx" parent="." unique_id=1288310457 node_paths=PackedStringArray("rope", "player") instance=ExtResource("70_sfx")]
+rope = NodePath("../Rope")
+player = NodePath("../Player")
+
+[node name="ImpactFrames" parent="." unique_id=1977402183 node_paths=PackedStringArray("rope", "player") instance=ExtResource("71_impact")]
+rope = NodePath("../Rope")
+player = NodePath("../Player")
 
 [node name="Kompas" parent="." unique_id=451803568 instance=ExtResource("63_sm6fg")]
 position = Vector2(2321, -1141)

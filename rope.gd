@@ -98,10 +98,6 @@ func _ready() -> void:
 	air_shots_left = shots_allowed_in_air
 	previous_player_position = player.global_position
 	shape_query.shape = probe_circle
-	var sfx := preload("res://player_sfx.gd").new()
-	sfx.rope = self
-	sfx.player = player
-	add_child(sfx)
 	for child in player.get_children():
 		if child is Camera2D:
 			child.make_current()
